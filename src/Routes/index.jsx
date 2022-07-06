@@ -1,4 +1,5 @@
 import { Route, Switch } from "react-router-dom";
+import CadastroUser from "../Pages/CadastroUser";
 import Home from "../Pages/Home";
 import LoginUser from "../Pages/LoginUser";
 
@@ -10,6 +11,9 @@ function Routes() {
       </Route>
       <Route exact path="/LoginUser">
         <LoginUser/>
+      </Route>
+      <Route exact path="/CadastroUser">
+        <CadastroUser/>
       </Route>
     </Switch>
   );
