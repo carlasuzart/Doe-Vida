@@ -1,5 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 import Home from "../Pages/Home";
+import LoginHospital from "../Pages/LoginHospital";
 import LoginUser from "../Pages/LoginUser";
 
 function Routes() {
@@ -9,7 +10,10 @@ function Routes() {
         <Home />
       </Route>
       <Route exact path="/LoginUser">
-        <LoginUser/>
+        <LoginUser />
+      </Route>
+      <Route exact path="/LoginHospital">
+        <LoginHospital />
       </Route>
     </Switch>
   );
