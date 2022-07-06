@@ -3,6 +3,7 @@ import CadastroUser from "../Pages/CadastroUser";
 import Home from "../Pages/Home";
 import LoginHospital from "../Pages/LoginHospital";
 import LoginUser from "../Pages/LoginUser";
+import RegisterHospital from "../Pages/RegisterHospital";
 
 function Routes() {
   return (
@@ -17,7 +18,10 @@ function Routes() {
         <LoginHospital />
       </Route>
       <Route exact path="/CadastroUser">
-        <CadastroUser/>
+        <CadastroUser />
+      </Route>
+      <Route exact path="/RegisterHospital">
+        <RegisterHospital />
       </Route>
     </Switch>
   );
