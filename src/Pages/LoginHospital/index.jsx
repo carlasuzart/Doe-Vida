@@ -15,7 +15,7 @@ function LoginHospital() {
             <input type="email" placeholder="Digite aqui o seu email" />
           </div>
           <div className="input">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Senha</label>
             <input type="password" placeholder="Digite aqui sua senha" />
           </div>
         </section>
