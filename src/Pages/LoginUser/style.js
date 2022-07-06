@@ -15,12 +15,11 @@ export const Content = styled.div`
   h1 {
     width: 299px;
     height: 59px;
-    left: 11px;
     top: 79px;
     font-family: "Nunito";
     font-style: normal;
     font-weight: 400;
-    font-size: 43.0976px;
+    font-size: 30px;
     line-height: 59px;
     color: #591c21;
     text-align: center;
@@ -81,7 +80,7 @@ export const Content = styled.div`
 
   input {
     width: 222px;
-    height: 23px;
+    height: 29px;
     left: 21px;
     top: 160px;
     background: #fefffb;
@@ -124,6 +123,10 @@ export const Content = styled.div`
       margin-top: 20px;
     }
 
+    h1{
+      font-size: 43px;
+    }
+
     p {
       margin-top: 20px;
     }
@@ -137,7 +140,7 @@ export const Content = styled.div`
 
     input {
       width: 347px;
-      height: 30px;
+      height: 40px;
       left: 92px;
       top: 171px;
       background: #fefffb;
