@@ -1,5 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 import CadastroUser from "../Pages/CadastroUser";
+import EditUser from "../Pages/EditUser";
 import Home from "../Pages/Home";
 import LoginHospital from "../Pages/LoginHospital";
 import LoginUser from "../Pages/LoginUser";
@@ -22,6 +23,9 @@ function Routes() {
       </Route>
       <Route exact path="/RegisterHospital">
         <RegisterHospital />
+      </Route>
+      <Route exact path="/EditUser">
+        <EditUser/>
       </Route>
     </Switch>
   );
