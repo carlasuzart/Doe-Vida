@@ -12,65 +12,33 @@ export const Content = styled.div`
   justify-content: center;
   width: 100%;
 
-  h1 {
-    width: 299px;
-    height: 59px;
-    top: 79px;
-    font-family: "Nunito";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 59px;
-    color: #591c21;
-    text-align: center;
-  }
-
-  h2 {
-    width: 96px;
-    height: 41px;
-    left: 112px;
-    top: 138px;
-    font-family: "Nunito";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30.0676px;
-    line-height: 41px;
-    color: #034140;
-  }
-
   form {
     width: 264px;
-    height: 439px;
+    height: 554px;
     left: 28px;
-    top: 204px;
+    top: 74px;
     background: #591c21;
     border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
   }
 
   p {
-    left: 80px;
-    top: 22px;
-    text-align: center;
     font-family: "Nunito";
     font-style: normal;
     font-weight: 400;
     font-size: 41.6928px;
-    line-height: 57px;
+    text-align: center;
     color: #ffffff;
   }
 
   div {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     margin-left: 20px;
+    margin-top: 30px;
   }
 
   label {
-    width: 46px;
+    width: 200px;
     height: 22px;
     font-family: "Nunito";
     font-style: normal;
@@ -101,41 +69,39 @@ export const Content = styled.div`
     line-height: 30px;
     color: #ffffff;
     border-radius: 7px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    cursor: pointer;
   }
 
   span {
     font-family: "Nunito";
     font-style: normal;
     font-weight: 400;
-    font-size: 10px;
+    font-size: 16px;
     line-height: 10px;
     color: #ffffff;
     text-align: center;
+    margin-left: 100px;
   }
 
   @media (min-width: 480px) {
     form {
-      width: 531px;
-      height: 439px;
-      left: 535px;
+      width: 464px;
+      height: 554px;
+      top: 71px;
       background: #591c21;
       border-radius: 6px;
-      margin-top: 20px;
-    }
-
-    h1{
-      font-size: 43px;
     }
 
     p {
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     div {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-left: 100px;
+      margin-left: 60px;
     }
 
     input {
@@ -147,7 +113,8 @@ export const Content = styled.div`
     }
 
     button {
-      margin-left: 150px;
+      margin-left: 60px;
+      width: 347px;
     }
 
     span {
@@ -157,6 +124,8 @@ export const Content = styled.div`
       font-size: 16px;
       line-height: 10px;
       color: #ffffff;
+      margin-left: 210px;
+      cursor: pointer;
     }
   }
 `;
