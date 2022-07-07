@@ -2,10 +2,11 @@ import { Container } from "./style";
 
 function HeaderAlt({ type }) {
   return (
-    <Container>
-      <div className="logo">
+    <Container type={type}>
+      <h1>
         Doe <span>Vida</span>
-      </div>
+      </h1>
+      <button>sair</button>
     </Container>
   );
 }
