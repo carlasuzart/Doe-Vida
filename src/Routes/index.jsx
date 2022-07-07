@@ -8,10 +8,10 @@ import Requirements from "../Pages/Requirements";
 import LoginHospital from "../Pages/LoginHospital";
 import LoginUser from "../Pages/LoginUser";
 import RegisterHospital from "../Pages/RegisterHospital";
+import HospitalProfile from "../Pages/HospitalProfile";
 import DateAvaliable from "../Pages/DateAvaliable";
 import RegisterUser from "../Pages/RegisterUser";
 import Schedules from "../Pages/Schedules";
-
 
 
 function Routes() {
@@ -39,7 +39,10 @@ function Routes() {
         <EditHospital />
       </Route>
       <Route exact path="/EditUser">
-        <EditUser/>
+        <EditUser />
+      </Route>
+      <Route exact path="/HospitalProfile">
+        <HospitalProfile />
       </Route>
       <Route exact path="/DateAvaliable">
         <DateAvaliable/>

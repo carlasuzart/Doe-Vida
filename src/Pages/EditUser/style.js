@@ -30,7 +30,7 @@ export const Content = styled.div`
   }
 
   label {
-    width: 58px;
+    width: 200px;
     height: 29px;
     left: 30px;
     font-family: "Nunito";
@@ -70,10 +70,10 @@ export const Content = styled.div`
     margin-left: 30px;
   }
   .btn {
-      display: flex;
-      flex-direction: column;
-      margin-left: 0px;
-    }
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+  }
 
   span {
     margin-left: 140px;
@@ -95,7 +95,7 @@ export const Content = styled.div`
       font-size: 33.9261px;
       line-height: 46px;
       color: #8d1f28;
-      margin-bottom:20px;
+      margin-bottom: 20px;
     }
 
     input {
@@ -127,7 +127,7 @@ export const Content = styled.div`
     }
 
     span {
-        width: 400px;
+      width: 400px;
       font-family: "Nunito";
       font-style: normal;
       font-size: 16px;
