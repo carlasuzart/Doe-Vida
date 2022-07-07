@@ -7,6 +7,7 @@ import Requirements from "../Pages/Requirements";
 import LoginHospital from "../Pages/LoginHospital";
 import LoginUser from "../Pages/LoginUser";
 import RegisterHospital from "../Pages/RegisterHospital";
+import DateAvaliable from "../Pages/DateAvaliable";
 
 
 function Routes() {
@@ -32,6 +33,9 @@ function Routes() {
       </Route>
       <Route exact path="/EditUser">
         <EditUser/>
+      </Route>
+      <Route exact path="/DateAvaliable">
+        <DateAvaliable/>
       </Route>
     </Switch>
   );
