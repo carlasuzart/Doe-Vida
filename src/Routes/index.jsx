@@ -7,7 +7,7 @@ import Requirements from "../Pages/Requirements";
 import LoginHospital from "../Pages/LoginHospital";
 import LoginUser from "../Pages/LoginUser";
 import RegisterHospital from "../Pages/RegisterHospital";
-
+import HospitalProfile from "../Pages/HospitalProfile";
 
 function Routes() {
   return (
@@ -16,7 +16,7 @@ function Routes() {
         <Home />
       </Route>
       <Route exact path="/requirements">
-        <Requirements/>
+        <Requirements />
       </Route>
       <Route exact path="/LoginUser">
         <LoginUser />
@@ -31,7 +31,10 @@ function Routes() {
         <RegisterHospital />
       </Route>
       <Route exact path="/EditUser">
-        <EditUser/>
+        <EditUser />
+      </Route>
+      <Route exact path="/HospitalProfile">
+        <HospitalProfile />
       </Route>
     </Switch>
   );
