@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100vh;
   display: flex;
   align-items: stretch;
 `;
@@ -14,7 +13,6 @@ export const Content = styled.div`
 
   form {
     width: 264px;
-    height: 554px;
     left: 28px;
     top: 74px;
     background: #591c21;
@@ -88,7 +86,6 @@ export const Content = styled.div`
   @media (min-width: 480px) {
     form {
       width: 464px;
-      height: 554px;
       top: 71px;
       background: #591c21;
       border-radius: 6px;

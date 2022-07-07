@@ -1,10 +1,10 @@
 import { Container, RegisterForm } from "./style";
 
-function RegisterHospital() {
+function EditHospital() {
   return (
     <Container>
       <RegisterForm>
-        <h1>Cadastro</h1>
+        <h1> Editar Cadastro</h1>
         <section className="inputSection">
           <div className="input">
             <label htmlFor="name">Nome da empresa</label>
@@ -36,12 +36,12 @@ function RegisterHospital() {
           </div>
         </section>
         <section className="buttonSection">
-          <button>Cadastrar</button>
-          <span>voltar</span>
+          <button>Editar Cadastro</button>
+          <span>Voltar</span>
         </section>
       </RegisterForm>
     </Container>
   );
 }
 
-export default RegisterHospital;
+export default EditHospital;

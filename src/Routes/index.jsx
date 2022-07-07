@@ -1,5 +1,6 @@
 import { Route, Switch } from "react-router-dom";
-import CadastroUser from "../Pages/CadastroUser";
+
+import EditHospital from "../Pages/EditHospital";
 import EditUser from "../Pages/EditUser";
 import Home from "../Pages/Home";
 
@@ -8,6 +9,8 @@ import LoginHospital from "../Pages/LoginHospital";
 import LoginUser from "../Pages/LoginUser";
 import RegisterHospital from "../Pages/RegisterHospital";
 import DateAvaliable from "../Pages/DateAvaliable";
+import RegisterUser from "../Pages/RegisterUser";
+
 
 
 function Routes() {
@@ -25,11 +28,14 @@ function Routes() {
       <Route exact path="/LoginHospital">
         <LoginHospital />
       </Route>
-      <Route exact path="/CadastroUser">
-        <CadastroUser />
+      <Route exact path="/RegisterUser">
+        <RegisterUser />
       </Route>
       <Route exact path="/RegisterHospital">
         <RegisterHospital />
+      </Route>
+      <Route exact path="/EditHospital">
+        <EditHospital />
       </Route>
       <Route exact path="/EditUser">
         <EditUser/>

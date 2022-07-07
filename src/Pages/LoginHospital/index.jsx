@@ -5,7 +5,7 @@ function LoginHospital() {
     <Container>
       <section className="logoHospital">
         <h1>Sangue na Veia</h1>
-        <span>hospital</span>
+        <span>Hospital</span>
       </section>
       <LoginForm>
         <h2>Login</h2>
