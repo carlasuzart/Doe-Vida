@@ -10,6 +10,7 @@ import LoginUser from "../Pages/LoginUser";
 import RegisterHospital from "../Pages/RegisterHospital";
 import DateAvaliable from "../Pages/DateAvaliable";
 import RegisterUser from "../Pages/RegisterUser";
+import Schedules from "../Pages/Schedules";
 
 
 
@@ -19,7 +20,7 @@ function Routes() {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route exact path="/requirements">
+      <Route exact path="/Requirements">
         <Requirements/>
       </Route>
       <Route exact path="/LoginUser">
@@ -43,6 +44,10 @@ function Routes() {
       <Route exact path="/DateAvaliable">
         <DateAvaliable/>
       </Route>
+      <Route exact path="/Schedules">
+     <Schedules />
+      </Route>
+
     </Switch>
   );
 }
