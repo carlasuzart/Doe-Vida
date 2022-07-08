@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  min-height: 100vh;
   display: flex;
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
 `;
 export const Content = styled.div`
   display: flex;
@@ -13,13 +15,11 @@ export const Content = styled.div`
 
   form {
     width: 264px;
-    left: 28px;
-    top: 74px;
     background: #591c21;
     border-radius: 6px;
   }
 
-  h1{
+  h1 {
     font-family: "Nunito";
     font-style: normal;
     font-weight: 400;
@@ -32,12 +32,10 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     margin-left: 20px;
-    margin-top: 30px;
   }
 
   label {
-    width: 200px;
-    height: 22px;
+    left: 30px;
     font-family: "Nunito";
     font-style: normal;
     font-size: 18px;
@@ -45,12 +43,12 @@ export const Content = styled.div`
   }
 
   input {
-    width: 222px;
-    height: 29px;
-    left: 21px;
-    top: 160px;
+    width: 280px;
+    height: 40px;
     background: #fefffb;
-    border-radius: 15px;
+    border: 1px solid #591c21;
+    border-radius: 10px;
+    padding: 20px;
   }
 
   button {
@@ -98,13 +96,12 @@ export const Content = styled.div`
     justify-content: flex-start;
     margin: 0;
   }
-  
-  .Error{
+
+  .Error {
     margin-top: 0;
     color: red;
+    margin-left: 20px;
   }
-
-
 
   @media (min-width: 480px) {
     form {
