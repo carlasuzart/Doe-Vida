@@ -31,6 +31,10 @@ function EditUser() {
               <input type="text" placeholder=" Digite seu endereço" />
             </div>
             <div>
+              <label>Telefone</label>
+              <input type="text" placeholder=" Digite seu telefone" />
+            </div>
+            <div>
               <label>Senha</label>
               <input type="password" placeholder=" Digite uma senha" />
             </div>

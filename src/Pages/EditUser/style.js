@@ -104,6 +104,7 @@ export const Content = styled.div`
       background: #fefffb;
       border: 1px solid #591c21;
       border-radius: 10px;
+      padding:20px;
     }
 
     .btn {
