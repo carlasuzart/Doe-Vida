@@ -16,6 +16,7 @@ import Schedules from "../Pages/Schedules";
 
 function Routes() {
   return (
+    
     <Switch>
       <Route exact path="/">
         <Home />

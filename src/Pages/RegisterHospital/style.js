@@ -27,6 +27,15 @@ export const RegisterForm = styled.form`
     margin-bottom: 30px;
   }
 
+  .labelArea {
+    display: flex;
+  }
+
+  .Error{
+    margin-left: 15px;
+    color: red;
+  }
+
   .inputSection {
     display: flex;
     flex-direction: column;

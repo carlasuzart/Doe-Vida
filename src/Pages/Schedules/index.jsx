@@ -24,8 +24,8 @@ function Schedules() {
       <hr />
       <h2>Agendamentos</h2>
       <main>
-         <h3>Nenhum agendamento</h3> 
-{/*   <ul>
+        {/*  <h3>Nenhum agendamento</h3>  */}
+  <ul>
 
       <CardSchedulesUser/>
       <CardSchedulesUser/>
@@ -36,7 +36,7 @@ function Schedules() {
 
      
 
-  </ul>  */}
+  </ul>  
       </main>
     </Container>
   );
