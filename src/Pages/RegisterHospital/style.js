@@ -7,7 +7,7 @@ export const Container = styled.main`
   align-items: center;
 `;
 
-export const RegisterForm = styled.section`
+export const RegisterForm = styled.form`
   width: 90vw;
   max-width: 531px;
   min-width: 250px;
@@ -25,6 +25,15 @@ export const RegisterForm = styled.section`
     font-weight: 400;
     font-size: 35px;
     margin-bottom: 30px;
+  }
+
+  .labelArea {
+    display: flex;
+  }
+
+  .Error{
+    margin-left: 15px;
+    color: red;
   }
 
   .inputSection {

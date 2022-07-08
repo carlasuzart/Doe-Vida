@@ -19,7 +19,7 @@ export const Content = styled.div`
     border-radius: 6px;
   }
 
-  p {
+  h1{
     font-family: "Nunito";
     font-style: normal;
     font-weight: 400;
@@ -91,6 +91,20 @@ export const Content = styled.div`
       text-decoration: underline;
     }
   }
+
+  .labelArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0;
+  }
+  
+  .Error{
+    margin-top: 0;
+    color: red;
+  }
+
+
 
   @media (min-width: 480px) {
     form {

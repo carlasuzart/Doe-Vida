@@ -16,6 +16,7 @@ import PatientsScheduleList from "../Pages/PatientsScheduleList";
 
 function Routes() {
   return (
+    
     <Switch>
       <Route exact path="/">
         <Home />

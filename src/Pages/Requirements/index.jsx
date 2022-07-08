@@ -3,11 +3,11 @@ import HeaderAlt from "../../components/HeaderAlt"
 
 
 
+
 function Requirements() {
   return (
-
     <div>
-    <HeaderAlt/>
+      <HeaderAlt />
       <Main>
       
         <h1>Requisitos para doação</h1>

@@ -1,10 +1,11 @@
+import CardSchedulesUser from "../../components/CardSchedulesUser/index.jsx";
 import HeaderAlt from "../../components/HeaderAlt";
 import { Container } from "./style";
 
 function Schedules() {
   return (
     <Container>
-       <HeaderAlt/>
+      <HeaderAlt/>
         <div className="topPage">
         <div className="Infos">
           <div className="buttonEContainer">
@@ -23,7 +24,19 @@ function Schedules() {
       <hr />
       <h2>Agendamentos</h2>
       <main>
-        <h3>Nenhum agendamento</h3>
+        {/*  <h3>Nenhum agendamento</h3>  */}
+  <ul>
+
+      <CardSchedulesUser/>
+      <CardSchedulesUser/>
+      <CardSchedulesUser/>
+      <CardSchedulesUser/>
+      <CardSchedulesUser/>
+      
+
+     
+
+  </ul>  
       </main>
     </Container>
   );
