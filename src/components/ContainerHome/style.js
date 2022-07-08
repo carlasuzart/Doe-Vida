@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const Main = styled.div`
   img {
-    margin-top: 50px;
-    width: 100vw;
-    height: 50vh;
+    margin-top: 10vh;
+    margin-left: 5vw;
+    width: 90vw;
+    height: 60vh;
   }
 
   @media (min-width: 800px) {
