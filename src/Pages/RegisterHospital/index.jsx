@@ -44,7 +44,6 @@ function RegisterHospital() {
    
    history.push("/LoginHospital")
     } 
-   
   }
 
   return (

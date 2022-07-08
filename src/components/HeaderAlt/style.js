@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   width: 100%;
+  min-width: 277px;
   height: 60px;
   padding: 0 3rem;
   background: ${(props) => (props.type === "hospital" ? "#034140" : "#591C21")};

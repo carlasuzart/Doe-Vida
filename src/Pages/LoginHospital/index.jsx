@@ -1,10 +1,17 @@
 import { Container, LoginForm } from "./style";
+import { useHistory } from "react-router-dom";
 
 function LoginHospital() {
+  const history = useHistory();
+
+  function goToRegisterPage() {
+    history.push("/RegisterHospital");
+  }
+
   return (
     <Container>
       <section className="logoHospital">
-        <h1>Sangue na Veia</h1>
+        <h1>Doe Vida</h1>
         <span>Hospital</span>
       </section>
       <LoginForm>
@@ -21,7 +28,7 @@ function LoginHospital() {
         </section>
         <section className="buttonSection">
           <button>Entrar</button>
-          <span>Não possui cadastro?</span>
+          <span onClick={goToRegisterPage}>Não possui cadastro?</span>
         </section>
       </LoginForm>
     </Container>

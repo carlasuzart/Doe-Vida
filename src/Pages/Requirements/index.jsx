@@ -1,5 +1,6 @@
-import HeaderAlt from "../../components/HeaderAlt";
-import {  Main} from "./style";
+import { Main } from "./style";
+import HeaderAlt from "../../components/HeaderAlt"
+
 
 
 

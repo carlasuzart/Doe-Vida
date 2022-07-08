@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100vh;
+  height: 92vh;
   display: flex;
-  align-items: stretch;
 `;
 export const Content = styled.div`
   display: flex;
@@ -12,11 +11,11 @@ export const Content = styled.div`
   justify-content: center;
   width: 100%;
 
+ 
   form {
+    margin-top: 40px;
     width: 320px;
     height: 592px;
-    left: 0px;
-    top: 78px;
     background: #034140;
   }
 
@@ -36,7 +35,7 @@ export const Content = styled.div`
   p {
     width: 300px;
     height: 10px;
-    font-family: "Inter";
+    font-family: "Nunito";
     font-style: normal;
     font-size: 12px;
     color: #ffffff;
@@ -48,8 +47,6 @@ export const Content = styled.div`
     form {
       width: 625px;
       height: 594px;
-      left: 488px;
-      top: 83px;
       background: #034140;
 
     }
@@ -70,7 +67,7 @@ export const Content = styled.div`
   p {
     width: 600px;
     height: 10px;
-    font-family: "Inter";
+    font-family: "Nunito";
     font-style: normal;
     font-size: 16px;
     color: #ffffff;
