@@ -1,6 +1,8 @@
+import { useHistory } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
 import { HeaderStyle } from "./style";
 function Header() {
+  const history = useHistory();
   return (
     <HeaderStyle>
       <div className="header">
@@ -9,8 +11,15 @@ function Header() {
         <h2>Vida</h2>
       </div>
       <div className="buttons">
-        <button className="red">Doador</button>
-        <button className="green">Hospital</button>
+        <button className="red" onClick={() => history.push("/LoginUser")}>
+          Doador
+        </button>
+        <button
+          className="green"
+          onClick={() => history.push("/LoginHospital")}
+        >
+          Hospital
+        </button>
       </div>
     </HeaderStyle>
   );
