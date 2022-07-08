@@ -1,6 +1,13 @@
 import { Container, Content } from "./style";
+import { useHistory } from "react-router-dom";
 
 function RegisterUser() {
+  const history = useHistory();
+
+  function goToLoginPage() {
+    history.push("/LoginUser");
+  }
+
   return (
     <Container>
       <Content>
@@ -35,7 +42,7 @@ function RegisterUser() {
             <input type="password" placeholder=" Confirme sua senha" />
           </div>
           <button type="submit">Cadastrar</button>
-          <span>Voltar</span>
+          <span onClick={goToLoginPage}>Voltar</span>
         </form>
       </Content>
     </Container>

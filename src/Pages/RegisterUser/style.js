@@ -70,6 +70,11 @@ export const Content = styled.div`
     margin-top: 40px;
     margin-bottom: 10px;
     cursor: pointer;
+
+    transition: 0.3s;
+    &:hover {
+      background: #046967;
+    }
   }
 
   span {
@@ -81,6 +86,10 @@ export const Content = styled.div`
     color: #ffffff;
     text-align: center;
     margin-left: 100px;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   @media (min-width: 480px) {

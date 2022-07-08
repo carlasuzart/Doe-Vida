@@ -1,6 +1,13 @@
 import { Container, RegisterForm } from "./style";
+import { useHistory } from "react-router-dom";
 
 function RegisterHospital() {
+  const history = useHistory();
+
+  function goToLoginPage() {
+    history.push("/LoginHospital");
+  }
+
   return (
     <Container>
       <RegisterForm>
@@ -37,7 +44,7 @@ function RegisterHospital() {
         </section>
         <section className="buttonSection">
           <button>Cadastrar</button>
-          <span>voltar</span>
+          <span onClick={goToLoginPage}>voltar</span>
         </section>
       </RegisterForm>
     </Container>
