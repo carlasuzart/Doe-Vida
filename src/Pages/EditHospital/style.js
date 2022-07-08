@@ -12,7 +12,6 @@ export const RegisterForm = styled.section`
   max-width: 531px;
   min-width: 250px;
   padding: 1rem 0;
-  background: #034140;
   border-radius: 8px;
 
   display: flex;
@@ -21,10 +20,11 @@ export const RegisterForm = styled.section`
   justify-content: space-between;
 
   h1 {
-    color: white;
+    color:#591c21;
     font-weight: 400;
     font-size: 35px;
     margin-bottom: 30px;
+    
   }
 
   .inputSection {
@@ -48,6 +48,7 @@ export const RegisterForm = styled.section`
         height: 33px;
         outline: none;
         padding-left: 12px;
+        
       }
     }
   }
@@ -80,7 +81,7 @@ export const RegisterForm = styled.section`
     span {
       cursor: pointer;
       font-size: 10px;
-      color: white;
+      color: #591c21;
 
       &:hover {
         text-decoration: underline;
