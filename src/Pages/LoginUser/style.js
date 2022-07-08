@@ -101,6 +101,11 @@ export const Content = styled.div`
     line-height: 30px;
     color: #ffffff;
     border-radius: 7px;
+
+    transition: 0.3s;
+    &:hover {
+      background: #046967;
+    }
   }
 
   span {
@@ -111,6 +116,11 @@ export const Content = styled.div`
     line-height: 10px;
     color: #ffffff;
     text-align: center;
+
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   @media (min-width: 480px) {
