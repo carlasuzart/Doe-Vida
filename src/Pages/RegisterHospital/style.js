@@ -7,7 +7,7 @@ export const Container = styled.main`
   align-items: center;
 `;
 
-export const RegisterForm = styled.section`
+export const RegisterForm = styled.form`
   width: 90vw;
   max-width: 531px;
   min-width: 250px;

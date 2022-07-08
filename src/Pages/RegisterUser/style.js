@@ -83,6 +83,7 @@ export const Content = styled.div`
     margin-left: 100px;
   }
 
+
   @media (min-width: 480px) {
     form {
       width: 464px;

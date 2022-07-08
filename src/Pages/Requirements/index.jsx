@@ -1,3 +1,4 @@
+import HeaderAlt from "../../components/HeaderAlt";
 import {  Main} from "./style";
 
 
@@ -5,11 +6,7 @@ import {  Main} from "./style";
 function Requirements() {
   return (
     <div>
-      <header>
-       <p>Sangue na <strong>Veia</strong></p>
-
-         <button>Sair</button>
-      </header>
+      <HeaderAlt />
       <Main>
       
         <h1>Requisitos para doação</h1>
