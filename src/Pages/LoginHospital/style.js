@@ -28,7 +28,7 @@ export const Container = styled.main`
   }
 `;
 
-export const LoginForm = styled.section`
+export const LoginForm = styled.form`
   width: 85vw;
   min-width: 270px;
   max-width: 531px;
