@@ -1,15 +1,10 @@
+import HeaderAlt from "../../components/HeaderAlt";
 import { Container } from "./style";
 
 function Schedules() {
   return (
     <Container>
-      <header>
-        <p>
-          Sangue na <strong>Veia</strong>
-        </p>
-
-        <button>Sair</button>
-      </header>
+       <HeaderAlt/>
         <div className="topPage">
         <div className="Infos">
           <div className="buttonEContainer">

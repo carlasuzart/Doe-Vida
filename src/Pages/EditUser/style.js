@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100vh;
+  height: 70vh;
   display: flex;
   align-items: stretch;
 `;
@@ -19,14 +19,13 @@ export const Content = styled.div`
   h1 {
     width: 92px;
     height: 41px;
-    left: 114px;
-    top: 0px;
     font-family: "Nunito";
     font-style: normal;
     font-weight: 400;
     font-size: 33.9261px;
     line-height: 46px;
     color: #8d1f28;
+    margin-top: 10px;
   }
 
   label {
@@ -96,6 +95,7 @@ export const Content = styled.div`
       line-height: 46px;
       color: #8d1f28;
       margin-bottom: 20px;
+     
     }
 
     input {
@@ -123,8 +123,9 @@ export const Content = styled.div`
       font-size: 16px;
       line-height: 19px;
       color: #ffffff;
-      margin-top: 30px;
+      margin-top: 10px;
     }
+    
 
     span {
       width: 400px;
