@@ -4,7 +4,7 @@ function LoginHospital() {
   return (
     <Container>
       <section className="logoHospital">
-        <h1>Sangue na Veia</h1>
+        <h1>Doe Vida</h1>
         <span>Hospital</span>
       </section>
       <LoginForm>

@@ -4,7 +4,7 @@ function LoginUser() {
   return (
     <Container>
       <Content>
-        <h1>Sangue na Veia</h1>
+        <h1>Doe Vida</h1>
         <h2>doador</h2>
 
         <form>

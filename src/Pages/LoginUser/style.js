@@ -33,7 +33,7 @@ export const Content = styled.div`
     font-family: "Nunito";
     font-style: normal;
     font-weight: 400;
-    font-size: 30.0676px;
+    font-size: 35px;
     line-height: 41px;
     color: #034140;
   }
@@ -123,7 +123,7 @@ export const Content = styled.div`
       margin-top: 20px;
     }
 
-    h1{
+    h1 {
       font-size: 43px;
     }
 
