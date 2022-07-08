@@ -1,9 +1,10 @@
+import HeaderAlt from "../../components/HeaderAlt";
 import { Container, Content } from "./style";
 
 function DateAvaliable() {
   return (
     <>
-      <header>Header</header>
+      <HeaderAlt/>
       <Container>
         <Content>
           <form>
