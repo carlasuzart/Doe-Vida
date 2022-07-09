@@ -4,6 +4,13 @@ export const Container = styled.div`
   height: 100vh;
   background: #f5f5f5;
 
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+
   .E {
     width: 21px;
     height: 20px;
@@ -15,16 +22,12 @@ export const Container = styled.div`
     align-items: center;
     margin-right: 10px;
     font-size: 9.74466px;
-
   }
-
-
 
   .buttonEContainer {
     display: flex;
     justify-content: flex-end;
     width: 100vw;
-    
   }
   .topPage {
     display: flex;
@@ -54,7 +57,9 @@ export const Container = styled.div`
     transition: 0.4s;
   }
 
-  .doar:hover { background: #046967 }
+  .doar:hover {
+    background: #046967;
+  }
 
   hr {
     background-color: #8d1f28;
@@ -67,7 +72,6 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   
   }
 
   h2 {
@@ -88,10 +92,10 @@ export const Container = styled.div`
     font-size: 13px;
     margin-bottom: 52px;
   }
-   ul{
+  ul {
     max-height: 70vh;
     overflow-y: auto;
-  } 
+  }
 
   @media (min-width: 764px) {
     .topPage {
@@ -109,7 +113,7 @@ export const Container = styled.div`
       display: flex;
     }
     .nameUser {
-        margin-bottom: 25px;
+      margin-bottom: 25px;
     }
 
     .E {
@@ -117,23 +121,21 @@ export const Container = styled.div`
     }
 
     h2 {
-        font-size: 30.733px;
+      font-size: 30.733px;
     }
     h3 {
-        font-size: 33.4883px;
-        margin-top: 212px;
+      font-size: 33.4883px;
+      margin-top: 212px;
     }
-    .doar{
-        margin-right: 65px;
+    .doar {
+      margin-right: 65px;
     }
-  
-    ul{
-        overflow-y: unset;
-         
-    }
-    
-        overflow-x: hidden;
-     overflow-y: auto;
 
+    ul {
+      overflow-y: unset;
+    }
+
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 `;
