@@ -13,10 +13,10 @@ import DateAvaliable from "../Pages/DateAvaliable";
 import RegisterUser from "../Pages/RegisterUser";
 import Schedules from "../Pages/Schedules";
 import PatientsScheduleList from "../Pages/PatientsScheduleList";
+import HospitalList from "../Pages/HospitalList";
 
 function Routes() {
   return (
-    
     <Switch>
       <Route exact path="/">
         <Home />
@@ -53,6 +53,9 @@ function Routes() {
       </Route>
       <Route exact path="/PatientsScheduleList">
         <PatientsScheduleList />
+      </Route>
+      <Route exact path="/HospitalList">
+        <HospitalList />
       </Route>
     </Switch>
   );
