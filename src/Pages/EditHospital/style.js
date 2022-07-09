@@ -7,12 +7,11 @@ export const Container = styled.main`
   align-items: center;
 `;
 
-export const RegisterForm = styled.section`
+export const RegisterForm = styled.form`
   width: 90vw;
   max-width: 531px;
   min-width: 250px;
   padding: 1rem 0;
-  background: #034140;
   border-radius: 8px;
 
   display: flex;
@@ -21,7 +20,7 @@ export const RegisterForm = styled.section`
   justify-content: space-between;
 
   h1 {
-    color: white;
+    color: #591c21;
     font-weight: 400;
     font-size: 35px;
     margin-bottom: 30px;
@@ -34,21 +33,28 @@ export const RegisterForm = styled.section`
     width: 85%;
     max-width: 375px;
 
-    .input {
+    .inputs {
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
+      display: flex;
+      flex-direction: row;
+
+
+      .erro{
+        color: red;
+      }
 
       label {
-        color: white;
+        color: #591c21;
         margin-left: 5px;
       }
 
-      input {
-        height: 33px;
-        outline: none;
-        padding-left: 12px;
-      }
+    }
+    input{
+      height: 35px;
+      outline: none;
+      padding-left: 12px;
     }
   }
 
@@ -80,7 +86,7 @@ export const RegisterForm = styled.section`
     span {
       cursor: pointer;
       font-size: 10px;
-      color: white;
+      color: #591c21;
 
       &:hover {
         text-decoration: underline;
