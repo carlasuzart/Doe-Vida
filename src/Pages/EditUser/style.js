@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 70vh;
+  min-height: 100vh;
   display: flex;
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
 `;
 export const Content = styled.div`
   display: flex;
@@ -13,11 +14,18 @@ export const Content = styled.div`
   width: 100%;
 
   form {
-    height: 500px;
+    height: 700px;
+  }
+
+  .validacao {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    align-items: center;
   }
 
   h1 {
-    width: 92px;
+    width: 344px;
     height: 41px;
     font-family: "Nunito";
     font-style: normal;
@@ -26,11 +34,10 @@ export const Content = styled.div`
     line-height: 46px;
     color: #8d1f28;
     margin-top: 10px;
+    text-align: center;
   }
 
   label {
-    width: 200px;
-    height: 29px;
     left: 30px;
     font-family: "Nunito";
     font-style: normal;
@@ -41,18 +48,24 @@ export const Content = styled.div`
   }
 
   input {
-    width: 284px;
+    width: 280px;
     height: 40px;
     background: #fefffb;
     border: 1px solid #591c21;
     border-radius: 10px;
+    padding: 20px;
   }
 
   div {
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
+    margin-left: 60px;
     margin-bottom: 20px;
+  }
+
+  p {
+    color: red;
+    width: 250px;
   }
 
   button {
@@ -66,8 +79,13 @@ export const Content = styled.div`
     font-size: 14px;
     line-height: 19px;
     color: #ffffff;
-    margin-left: 30px;
+    margin-left: 60px;
+    transition: 0.3s;
+    &:hover {
+      background: #046967;
+    }
   }
+
   .btn {
     display: flex;
     flex-direction: column;
@@ -75,7 +93,7 @@ export const Content = styled.div`
   }
 
   span {
-    margin-left: 140px;
+    margin-left: 150px;
     font-family: "Nunito";
     font-style: normal;
     font-size: 16px;
@@ -85,6 +103,15 @@ export const Content = styled.div`
   }
 
   @media (min-width: 480px) {
+    form {
+      height: 800px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 100px;
+    }
+
     h1 {
       width: 92px;
       height: 41px;
@@ -94,8 +121,19 @@ export const Content = styled.div`
       font-size: 33.9261px;
       line-height: 46px;
       color: #8d1f28;
-      margin-bottom: 20px;
-     
+    }
+
+    .validacao {
+      display: flex;
+      flex-direction: row;
+      margin: 0px;
+      align-items: center;
+    }
+
+    p {
+      color: red;
+      margin-left: 20px;
+      width: 200px;
     }
 
     input {
@@ -104,7 +142,9 @@ export const Content = styled.div`
       background: #fefffb;
       border: 1px solid #591c21;
       border-radius: 10px;
+      padding: 20px;
     }
+
 
     .btn {
       display: flex;
@@ -125,7 +165,6 @@ export const Content = styled.div`
       color: #ffffff;
       margin-top: 10px;
     }
-    
 
     span {
       width: 400px;
@@ -135,7 +174,9 @@ export const Content = styled.div`
       text-align: center;
       color: #7d7d7d;
       cursor: pointer;
-      margin-left: 210px;
+      margin-left: 40px;
+      margin-bottom: 20px;
+      text-decoration: none;
     }
   }
 `;

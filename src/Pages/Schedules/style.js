@@ -15,18 +15,23 @@ export const Container = styled.div`
     align-items: center;
     margin-right: 10px;
     font-size: 9.74466px;
+
   }
+
+
 
   .buttonEContainer {
     display: flex;
     justify-content: flex-end;
     width: 100vw;
+    
   }
   .topPage {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 35px;
   }
 
   .nameUser {
@@ -46,7 +51,10 @@ export const Container = styled.div`
     border-radius: 8px;
     margin-top: 19px;
     margin-bottom: 35px;
+    transition: 0.4s;
   }
+
+  .doar:hover { background: #046967 }
 
   hr {
     background-color: #8d1f28;
@@ -80,19 +88,28 @@ export const Container = styled.div`
     font-size: 13px;
     margin-bottom: 52px;
   }
+   ul{
+    max-height: 70vh;
+    overflow-y: auto;
+  } 
 
   @media (min-width: 764px) {
     .topPage {
       flex-direction: row;
       justify-content: space-between;
+      margin-top: 20px;
     }
     .buttonEContainer {
       width: 40px;
       height: 90px;
       align-items: flex-end;
+      margin-top: 30px;
     }
     .Infos {
       display: flex;
+    }
+    .nameUser {
+        margin-bottom: 25px;
     }
 
     .E {
@@ -109,8 +126,14 @@ export const Container = styled.div`
     .doar{
         margin-right: 65px;
     }
-    main{
-        
+  
+    ul{
+        overflow-y: unset;
+         
     }
+    
+        overflow-x: hidden;
+     overflow-y: auto;
+
   }
 `;

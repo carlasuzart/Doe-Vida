@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { loginUser } from "../../services/FakeApi";
+import { useHistory } from "react-router-dom";
 
 function LoginHospital() {
   const schema = yup
@@ -21,10 +22,17 @@ function LoginHospital() {
   const onSubmit = (data) => {
     loginUser(data);
   };
+  
+  const history = useHistory();
+
+  function goToRegisterPage() {
+    history.push("/RegisterHospital");
+  }
+
   return (
     <Container>
       <section className="logoHospital">
-        <h1>Sangue na Veia</h1>
+        <h1>Doe Vida</h1>
         <span>Hospital</span>
       </section>
       <LoginForm onSubmit={handleSubmit(onSubmit)}>
@@ -49,7 +57,7 @@ function LoginHospital() {
         </section>
         <section className="buttonSection">
           <button type="submit">Entrar</button>
-          <span>Não possui cadastro?</span>
+          <span onClick={goToRegisterPage}>Não possui cadastro?</span>
         </section>
       </LoginForm>
     </Container>

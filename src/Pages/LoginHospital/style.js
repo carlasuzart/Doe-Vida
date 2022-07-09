@@ -23,7 +23,7 @@ export const Container = styled.main`
 
     span {
       color: #034140;
-      font-size: 30px;
+      font-size: 23px;
     }
   }
 `;

@@ -3,6 +3,7 @@ import { Container, Content } from "./style";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { loginUser } from "../../services/FakeApi";
+import { useHistory } from "react-router-dom";
 
 function LoginUser() {
   const schema = yup
@@ -22,11 +23,16 @@ function LoginUser() {
     console.log(data);
     loginUser(data);
   };
+  
+    const history = useHistory();
 
+  function goToRegisterPage() {
+    history.push("/RegisterUser");
+  }
   return (
     <Container>
       <Content>
-        <h1>Sangue na Veia</h1>
+        <h1>Doe Vida</h1>
         <h2>doador</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -52,7 +58,7 @@ function LoginUser() {
             />
           </div>
           <button type="submit">Entrar</button>
-          <span>Não possui uma conta?</span>
+          <span onClick={goToRegisterPage}>Não possui uma conta?</span>
         </form>
       </Content>
     </Container>

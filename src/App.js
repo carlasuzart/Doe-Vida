@@ -7,6 +7,19 @@ import "react-toastify/ReactToastify.min.css";
 function App() {
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+     />
+        
       <GlobalStyle />
       <ToastContainer
         position="top-left"

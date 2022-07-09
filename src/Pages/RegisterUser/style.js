@@ -19,7 +19,7 @@ export const Content = styled.div`
     border-radius: 6px;
   }
 
-  p {
+  h1{
     font-family: "Nunito";
     font-style: normal;
     font-weight: 400;
@@ -70,6 +70,11 @@ export const Content = styled.div`
     margin-top: 40px;
     margin-bottom: 10px;
     cursor: pointer;
+
+    transition: 0.3s;
+    &:hover {
+      background: #046967;
+    }
   }
 
   span {
@@ -81,7 +86,25 @@ export const Content = styled.div`
     color: #ffffff;
     text-align: center;
     margin-left: 100px;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
+
+  .labelArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0;
+  }
+  
+  .Error{
+    margin-top: 0;
+    color: red;
+  }
+
+
 
   @media (min-width: 480px) {
     form {

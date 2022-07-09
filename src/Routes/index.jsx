@@ -12,16 +12,17 @@ import HospitalProfile from "../Pages/HospitalProfile";
 import DateAvaliable from "../Pages/DateAvaliable";
 import RegisterUser from "../Pages/RegisterUser";
 import Schedules from "../Pages/Schedules";
-
+import PatientsScheduleList from "../Pages/PatientsScheduleList";
 
 function Routes() {
   return (
+    
     <Switch>
       <Route exact path="/">
         <Home />
       </Route>
       <Route exact path="/Requirements">
-        <Requirements/>
+        <Requirements />
       </Route>
       <Route exact path="/LoginUser">
         <LoginUser />
@@ -45,12 +46,14 @@ function Routes() {
         <HospitalProfile />
       </Route>
       <Route exact path="/DateAvaliable">
-        <DateAvaliable/>
+        <DateAvaliable />
       </Route>
       <Route exact path="/Schedules">
-     <Schedules />
+        <Schedules />
       </Route>
-
+      <Route exact path="/PatientsScheduleList">
+        <PatientsScheduleList />
+      </Route>
     </Switch>
   );
 }

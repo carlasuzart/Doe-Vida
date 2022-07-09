@@ -33,7 +33,7 @@ export const Content = styled.div`
     font-family: "Nunito";
     font-style: normal;
     font-weight: 400;
-    font-size: 30.0676px;
+    font-size: 35px;
     line-height: 41px;
     color: #034140;
   }
@@ -101,6 +101,11 @@ export const Content = styled.div`
     line-height: 30px;
     color: #ffffff;
     border-radius: 7px;
+
+    transition: 0.3s;
+    &:hover {
+      background: #046967;
+    }
   }
 
   span {
@@ -111,6 +116,11 @@ export const Content = styled.div`
     line-height: 10px;
     color: #ffffff;
     text-align: center;
+
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   @media (min-width: 480px) {
@@ -123,7 +133,7 @@ export const Content = styled.div`
       margin-top: 20px;
     }
 
-    h1{
+    h1 {
       font-size: 43px;
     }
 
