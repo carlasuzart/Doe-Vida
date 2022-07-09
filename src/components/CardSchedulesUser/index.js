@@ -1,24 +1,32 @@
 import styled from "styled-components";
 
 export const Li = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   list-style: none;
-  margin-top: 20px;
+  display: flex;
   width: 270px;
-  height: 90px;
+  height: 110px;
   background: #034140;
   border-radius: 5px;
   color: #ffffff;
   padding-left: 10px;
   padding-top: 6px;
 
+  cursor: pointer;
+
+  transition: 0.4s;
+  &:hover {
+    background: #046967;
+  }
+
   h4 {
     font-size: 12px;
     font-family: "Inter";
-margin-top: 5px;
-    margin-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
-
- 
 
   .endereçoHospital {
     font-size: 13px;
@@ -30,13 +38,11 @@ margin-top: 5px;
     width: 499px;
     height: 81px;
 
-
-    h4{
-        font-size: 14px; 
+    h4 {
+      font-size: 14px;
     }
-    .endereçoHospital{
-        font-size: 14px;
+    .endereçoHospital {
+      font-size: 14px;
     }
-   
   }
 `;
