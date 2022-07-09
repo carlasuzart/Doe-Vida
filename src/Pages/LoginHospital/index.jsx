@@ -22,7 +22,7 @@ function LoginHospital() {
   const onSubmit = (data) => {
     loginUser(data);
   };
-  
+
   const history = useHistory();
 
   function goToRegisterPage() {
@@ -39,7 +39,12 @@ function LoginHospital() {
         <h2>Login</h2>
         <section className="inputSection">
           <div className="input">
-            <label htmlFor="email">Email</label>
+            <div className="labelDiv">
+              <label htmlFor="email">Email</label>
+              {errors?.email?.message && (
+                <span> - {errors?.email?.message}</span>
+              )}
+            </div>
             <input
               type="email"
               placeholder="Digite aqui o seu email"
@@ -47,7 +52,12 @@ function LoginHospital() {
             />
           </div>
           <div className="input">
-            <label htmlFor="password">Senha</label>
+            <div className="labelDiv">
+              <label htmlFor="password">Senha</label>
+              {errors?.password?.message && (
+                <span> - {errors?.password?.message}</span>
+              )}
+            </div>
             <input
               type="password"
               placeholder="Digite aqui sua senha"

@@ -51,6 +51,14 @@ export const LoginForm = styled.form`
     font-size: 35px;
   }
 
+  .labelDiv {
+    padding: 0 5px;
+
+    span {
+      color: #d92526;
+    }
+  }
+
   .inputSection {
     display: flex;
     flex-direction: column;
@@ -65,7 +73,6 @@ export const LoginForm = styled.form`
 
       label {
         color: white;
-        margin-left: 5px;
       }
 
       input {
