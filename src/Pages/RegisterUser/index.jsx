@@ -34,12 +34,12 @@ tel: data.tel,
 user_number: data.user_number , 
     }
    const resposta=await registerUser(newUser)
-   console.log(resposta)
+
    if( resposta.statusText==='Created'){
    
     history.push("/LoginUser")
      } 
-  console.log(newUser)
+  
    
   }
   return (
