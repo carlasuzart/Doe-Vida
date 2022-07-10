@@ -26,7 +26,8 @@ export const registerUser = (data) =>
     
       if(err.response.data==='Email already exists'){
         
-        toast.error("Email já cadastrado, tente outro!")
+         toast.error("Email já cadastrado, tente outro!") 
+   
       }
       else{
         toast.error("Ocorreu algum erro. Tente novamente mais tarde")
