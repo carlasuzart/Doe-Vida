@@ -23,8 +23,8 @@ function LoginUser() {
     console.log(data);
     loginUser(data);
   };
-  
-    const history = useHistory();
+
+  const history = useHistory();
 
   function goToRegisterPage() {
     history.push("/RegisterUser");
@@ -59,6 +59,9 @@ function LoginUser() {
           </div>
           <button type="submit">Entrar</button>
           <span onClick={goToRegisterPage}>Não possui uma conta?</span>
+          <span onClick={()=>{history.push("/")}} className="voltar">
+            Voltar
+          </span>
         </form>
       </Content>
     </Container>

@@ -88,7 +88,7 @@ export const RegisterForm = styled.form`
 
     span {
       cursor: pointer;
-      font-size: 10px;
+      font-size: 16px;
       color: white;
 
       &:hover {

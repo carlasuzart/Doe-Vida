@@ -40,7 +40,7 @@ export const Content = styled.div`
 
   form {
     width: 264px;
-    height: 439px;
+    height: 459px;
     left: 28px;
     top: 204px;
     background: #591c21;
@@ -87,7 +87,8 @@ export const Content = styled.div`
     border-radius: 15px;
   }
 
-  button {
+  button,
+  .voltar {
     width: 222px;
     height: 39px;
     left: 21px;
@@ -122,11 +123,19 @@ export const Content = styled.div`
       text-decoration: underline;
     }
   }
+  .voltar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .voltar:hover {
+    text-decoration: none;
+  }
 
   @media (min-width: 480px) {
     form {
       width: 531px;
-      height: 439px;
+      height: 509px;
       left: 535px;
       background: #591c21;
       border-radius: 6px;
@@ -156,7 +165,8 @@ export const Content = styled.div`
       background: #fefffb;
     }
 
-    button {
+    button,
+    .voltar {
       margin-left: 150px;
     }
 

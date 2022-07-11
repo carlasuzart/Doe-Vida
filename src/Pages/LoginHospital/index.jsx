@@ -68,6 +68,7 @@ function LoginHospital() {
         <section className="buttonSection">
           <button type="submit">Entrar</button>
           <span onClick={goToRegisterPage}>Não possui cadastro?</span>
+          <span onClick={()=>{ history.push("/")}} className="voltar" >Voltar</span>
         </section>
       </LoginForm>
     </Container>
