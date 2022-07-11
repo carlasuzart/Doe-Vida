@@ -3,6 +3,8 @@ import HeaderAlt from "../../components/HeaderAlt";
 import { Container } from "./style";
 
 function Schedules() {
+
+  const nameUser=localStorage.getItem("@CapstoneM3:NameUser")
   return (
     <Container>
       <HeaderAlt />
@@ -11,7 +13,7 @@ function Schedules() {
           <div className="buttonEContainer">
             <button className="E">E</button>
           </div>
-          <h1 className="nameUser">Olá, Nome User</h1>
+          <h1 className="nameUser">Olá, {nameUser}</h1>
         </div>
 
         <button className="doar">Doar</button>

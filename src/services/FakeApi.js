@@ -8,8 +8,14 @@ export const loginUser = (data) =>
     method: "POST",
     data: data,
   })
-    .then((resp) => toast.success("Usuário Logado com sucesso"))
-    .catch((error) => toast.error(error.response.data));
+    .then((resp) => {toast.success("Usuário Logado com sucesso")
+   
+   return resp 
+  })
+    .catch((error) => {toast.error(error.response.data)
+    
+    return error 
+    });
 
 export const registerUser = (data) =>
   axios({
