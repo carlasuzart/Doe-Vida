@@ -52,7 +52,13 @@ export const HeaderStyle = styled.header`
     padding-left: 10px;
     padding-right: 10px;
     margin-right: 20px;
+
+    transition: 0.3s;
+    &:hover {
+      background: red;
+    }
   }
+
   .green {
     background-color: #034140;
     color: #fefffb;
@@ -63,6 +69,11 @@ export const HeaderStyle = styled.header`
     padding-left: 10px;
     padding-right: 10px;
     margin-right: 20px;
+
+    transition: 0.4s;
+    &:hover {
+      background: #046967;
+    }
   }
 
   @media (min-width: 768px) {

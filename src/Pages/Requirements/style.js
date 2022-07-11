@@ -90,6 +90,11 @@ export const Main = styled.main`
     font-size: 14px;
     border-radius: 8px;
     margin-top: 29px;
+
+    transition: 0.4s;
+    &:hover {
+      background: #046967;
+    }
   }
 
   .returnButton {
