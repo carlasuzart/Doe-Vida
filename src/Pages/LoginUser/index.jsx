@@ -19,11 +19,14 @@ function LoginUser() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => {
-    console.log(data);
-    loginUser(data);
-  };
 
+  const onSubmit = (data) => {
+    loginUser(data)
+      .then((resp) => {
+        history.push("/Schedules");
+      })
+      .catch((error) => console.log(error.response.data));
+  };
   const history = useHistory();
 
   function goToRegisterPage() {
@@ -33,7 +36,7 @@ function LoginUser() {
     <Container>
       <Content>
         <h1>Doe Vida</h1>
-        <h2>doador</h2>
+        <h2>Doador</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <p>Login</p>
@@ -57,9 +60,14 @@ function LoginUser() {
               {...register("password")}
             />
           </div>
-          <button type="submit">Entrar</button>
+          <button>Entrar</button>
           <span onClick={goToRegisterPage}>Não possui uma conta?</span>
-          <span onClick={()=>{history.push("/")}} className="voltar">
+          <span
+            onClick={() => {
+              history.push("/");
+            }}
+            className="voltar"
+          >
             Voltar
           </span>
         </form>
