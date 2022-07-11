@@ -1,6 +1,5 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-import React, { createContext } from "react";
 
 //baseUrl
 const baseUrl = "https://apicapstonejson.herokuapp.com";
@@ -9,8 +8,6 @@ const baseUrl = "https://apicapstonejson.herokuapp.com";
 const saveToken = (token) => {
   localStorage.setItem("token", JSON.stringify(token));
 };
-//
-const Context = createContext(0);
 
 export const loginUser = (data) =>
   axios({
@@ -42,11 +39,3 @@ export const registerUser = (data) =>
       }
       return err;
     });
-
-export const editUser = (data, id) => {
-  axios({
-    url: `${baseUrl}/register/${id}`,
-    method: "PATCH",
-    data: data,
-  });
-};
