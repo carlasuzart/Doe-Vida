@@ -1,10 +1,12 @@
 import { Main } from "./style";
 import HeaderAlt from "../../components/HeaderAlt"
-
+import {  useHistory } from "react-router-dom";
 
 
 
 function Requirements() {
+
+  const history = useHistory()
   return (
     <div>
       <HeaderAlt />
@@ -211,8 +213,8 @@ function Requirements() {
         </strong>
 
         <div className="buttonsArea">
-          <button className="aceptButton">Aceito</button>
-          <button className="returnButton">Voltar</button>
+          <button onClick={()=>history.push("/HospitalList")}  className="aceptButton">Aceito</button>
+          <button onClick={()=>history.push("/Schedules")}  className="returnButton">Voltar</button>
         </div>
         
       </Main>
