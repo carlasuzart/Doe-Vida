@@ -85,6 +85,7 @@ export const Content = styled.div`
     top: 160px;
     background: #fefffb;
     border-radius: 15px;
+    padding-left: 20px;
   }
 
   button,
@@ -163,6 +164,7 @@ export const Content = styled.div`
       left: 92px;
       top: 171px;
       background: #fefffb;
+      padding-left: 20px;
     }
 
     button,
