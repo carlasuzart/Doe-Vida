@@ -1,6 +1,13 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+
+//baseUrl
 const baseUrl = "https://apicapstonejson.herokuapp.com";
+
+//save token in localStorage
+const saveToken = (token) => {
+  localStorage.setItem("token", JSON.stringify(token));
+};
 
 export const loginUser = (data) =>
   axios({
@@ -8,7 +15,10 @@ export const loginUser = (data) =>
     method: "POST",
     data: data,
   })
-    .then((resp) => toast.success("Usuário Logado com sucesso"))
+    .then((resp) => {
+      toast.success("Usuário Logado com sucesso");
+      saveToken(resp.data.accessToken);
+    })
     .catch((error) => toast.error(error.response.data));
 
 export const registerUser = (data) =>
