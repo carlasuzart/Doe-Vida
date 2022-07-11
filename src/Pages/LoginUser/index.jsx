@@ -57,9 +57,21 @@ function LoginUser() {
               {...register("password")}
             />
           </div>
-          <button type="submit">Entrar</button>
+          <button
+            onClick={() => {
+              history.push("/DateAvaliable");
+            }}
+            type="submit"
+          >
+            Entrar
+          </button>
           <span onClick={goToRegisterPage}>Não possui uma conta?</span>
-          <span onClick={()=>{history.push("/")}} className="voltar">
+          <span
+            onClick={() => {
+              history.push("/");
+            }}
+            className="voltar"
+          >
             Voltar
           </span>
         </form>
