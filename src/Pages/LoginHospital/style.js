@@ -23,7 +23,7 @@ export const Container = styled.main`
 
     span {
       color: #034140;
-      font-size: 23px;
+      font-size: 27px;
     }
   }
 `;
@@ -86,7 +86,7 @@ export const LoginForm = styled.form`
   .buttonSection {
     width: 100%;
 
-    button {
+    button,.voltar {
       width: 33%;
       min-width: 133.23px;
       height: 33px;
@@ -101,14 +101,26 @@ export const LoginForm = styled.form`
       }
     }
 
+
+ .voltar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .voltar:hover{
+  text-decoration: none;
+ }
+
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
 
     span {
+      margin-top: 5px;
+      
       cursor: pointer;
-      font-size: 10px;
+      font-size: 16px;
       color: white;
 
       &:hover {
