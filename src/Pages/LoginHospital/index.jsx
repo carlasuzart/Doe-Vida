@@ -19,8 +19,17 @@ function LoginHospital() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => {
-    loginUser(data);
+  const onSubmit = async (data) => {
+    const response = await loginUser(data);
+    if (response.statusText === "OK") {
+      const nameHospital = response.data.user.corporate_name;
+      const addressHospital = response.data.user.address;
+     
+      localStorage.setItem("@CapstoneM3:NameHospital", nameHospital);
+      localStorage.setItem("@CapstoneM3:AddressHospital", addressHospital);
+
+      history.push("/HospitalProfile");
+    }
   };
 
   const history = useHistory();
@@ -68,7 +77,14 @@ function LoginHospital() {
         <section className="buttonSection">
           <button type="submit">Entrar</button>
           <span onClick={goToRegisterPage}>Não possui cadastro?</span>
-          <span onClick={()=>{ history.push("/")}} className="voltar" >Voltar</span>
+          <span
+            onClick={() => {
+              history.push("/");
+            }}
+            className="voltar"
+          >
+            Voltar
+          </span>
         </section>
       </LoginForm>
     </Container>

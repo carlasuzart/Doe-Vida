@@ -4,8 +4,9 @@ import { Container } from "./style";
 import {  useHistory } from "react-router-dom";
 
 function Schedules() {
-
   const history = useHistory();
+  const nameUser=localStorage.getItem("@CapstoneM3:NameUser")
+
   return (
     <Container>
       <HeaderAlt />
@@ -14,7 +15,7 @@ function Schedules() {
           <div className="buttonEContainer">
             <button onClick={()=>history.push("/EditUser")} className="E">E</button>
           </div>
-          <h1 className="nameUser">Olá, Nome User</h1>
+          <h1 className="nameUser">Olá, {nameUser}</h1>
         </div>
 
         <button onClick={()=>history.push("/Requirements")}  className="doar">Doar</button>

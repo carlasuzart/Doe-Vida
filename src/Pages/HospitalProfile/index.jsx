@@ -4,12 +4,15 @@ import {  useHistory } from "react-router-dom";
 
 function HospitalProfile() {
   const history = useHistory()
+  const nameHospital = localStorage.getItem("@CapstoneM3:NameHospital");
+  const addressHospital = localStorage.getItem("@CapstoneM3:AddressHospital");
+
   return (
     <Container>
       <HeaderAlt type="hospital" />
       <div className="hospitalInfo">
-        <h2>Hospital da Posse</h2>
-        <p>Av. Henrique Duque Estrada Meyer, Nova Iguaçu, Rio de Janeiro</p>
+        <h2>{nameHospital}</h2>
+        <p>{addressHospital}</p>
         <button onClick={()=>history.push("/EditHospital")}>e</button>
       </div>
       <Schedules>
