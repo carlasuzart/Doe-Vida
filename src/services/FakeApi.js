@@ -2,7 +2,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 //baseUrl
-const baseUrl = "https://apicapstonejson.herokuapp.com";
+// const baseUrl = "https://apicapstonejson.herokuapp.com";
+const baseUrl = "https://s6-11-fernando-sramignon.herokuapp.com";
 
 //save token in localStorage
 const saveToken = (token) => {
@@ -43,3 +44,27 @@ export const registerUser = (data) =>
       }
       return err;
     });
+
+export const getHospitals = () => {
+  return axios({
+    url: `${baseUrl}/users?type=hospital`,
+    method: "GET",
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  }).then((resp) => {
+    return resp;
+  });
+};
+
+export const getHospital = (id) => {
+  return axios({
+    url: `${baseUrl}/users/${id}`,
+    method: "GET",
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  }).then((resp) => {
+    return resp;
+  });
+};

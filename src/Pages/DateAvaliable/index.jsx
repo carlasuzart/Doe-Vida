@@ -1,15 +1,29 @@
 import HeaderAlt from "../../components/HeaderAlt";
 import { Container, Content } from "./style";
+
+import { getHospital } from "../../services/FakeApi";
 import { useState } from "react";
+import { useEffect } from "react";
 import DatePicker from "react-datepicker";
 import { registerLocale } from "react-datepicker";
-
 import ptBR from "date-fns/locale/pt-BR";
 import "react-datepicker/dist/react-datepicker.css";
 
 registerLocale("pt-br", ptBR);
 
 function DateAvaliable() {
+  const [currentHospital, setCurrentHospital] = useState([]);
+  useEffect(() => {
+    getHospitalById();
+  }, []);
+  
+    async function getHospitalById() {
+    const response = await getHospital(
+      localStorage.getItem("currentHospitalId")
+    );
+    setCurrentHospital(response.data);
+  }
+
   const [startDate, setStartDate] = useState(null);
 
   const dateFormatAux = (date) => {
@@ -50,8 +64,8 @@ function DateAvaliable() {
       <Container>
         <Content>
           <form onSubmit={handleSubmit}>
-            <h1>Hospital da Posse</h1>
-            <p>Av. Henrique Duque Estrada Meyer, Nova Iguaçu, Rio de Janeiro</p>
+            <h1>{currentHospital?.company_name}</h1>
+            <p>{currentHospital?.address}</p>
             <div className="form__datepicker">
               <label>Escolha sua data</label>
               <DatePicker
