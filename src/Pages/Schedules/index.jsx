@@ -1,22 +1,24 @@
 import CardSchedulesUser from "../../components/CardSchedulesUser/index.jsx";
 import HeaderAlt from "../../components/HeaderAlt";
 import { Container } from "./style";
+import {  useHistory } from "react-router-dom";
 
 function Schedules() {
-
+  const history = useHistory();
   const nameUser=localStorage.getItem("@CapstoneM3:NameUser")
+
   return (
     <Container>
       <HeaderAlt />
       <div className="topPage">
         <div className="Infos">
           <div className="buttonEContainer">
-            <button className="E">E</button>
+            <button onClick={()=>history.push("/EditUser")} className="E">E</button>
           </div>
           <h1 className="nameUser">Olá, {nameUser}</h1>
         </div>
 
-        <button className="doar">Doar</button>
+        <button onClick={()=>history.push("/Requirements")}  className="doar">Doar</button>
       </div>
 
       <hr />

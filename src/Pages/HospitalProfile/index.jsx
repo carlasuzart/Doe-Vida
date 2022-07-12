@@ -1,7 +1,9 @@
 import HeaderAlt from "../../components/HeaderAlt";
 import { Container, Schedules } from "./style";
+import {  useHistory } from "react-router-dom";
 
 function HospitalProfile() {
+  const history = useHistory()
   const nameHospital = localStorage.getItem("@CapstoneM3:NameHospital");
   const addressHospital = localStorage.getItem("@CapstoneM3:AddressHospital");
 
@@ -11,12 +13,12 @@ function HospitalProfile() {
       <div className="hospitalInfo">
         <h2>{nameHospital}</h2>
         <p>{addressHospital}</p>
-        <button>e</button>
+        <button onClick={()=>history.push("/EditHospital")}>e</button>
       </div>
       <Schedules>
         <div className="scheduleTitle">
           <h2>Agendamentos</h2>
-          <button>e</button>
+          <button onClick={()=>history.push("/EditHospital")}>e</button>
         </div>
         <div className="scheduleCards">
           <div className="cardItem">
