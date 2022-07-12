@@ -1,7 +1,7 @@
 import HeaderAlt from "../../components/HeaderAlt";
 import { Container, Content } from "./style";
 
-import { getHospital } from "../../services/FakeApi";
+import { createSchedule, getUser } from "../../services/FakeApi";
 import { useState } from "react";
 import { useEffect } from "react";
 import DatePicker from "react-datepicker";
@@ -13,15 +13,21 @@ registerLocale("pt-br", ptBR);
 
 function DateAvaliable() {
   const [currentHospital, setCurrentHospital] = useState([]);
+  const [currentUser, setCurrentUser] = useState([]);
+
   useEffect(() => {
     getHospitalById();
+    getUserById();
   }, []);
-  
-    async function getHospitalById() {
-    const response = await getHospital(
-      localStorage.getItem("currentHospitalId")
-    );
+
+  async function getHospitalById() {
+    const response = await getUser(localStorage.getItem("currentHospitalId"));
     setCurrentHospital(response.data);
+  }
+
+  async function getUserById() {
+    const response = await getUser(localStorage.getItem("@CapstoneM3:userId"));
+    setCurrentUser(response.data);
   }
 
   const [startDate, setStartDate] = useState(null);
@@ -56,7 +62,16 @@ function DateAvaliable() {
       scheduledDateFmtYMD: scheduledYMD,
     };
 
-    console.log(formData);
+    const output = {
+      date: formData.scheduledDateFmtYMD,
+      userId: Number(localStorage.getItem("@CapstoneM3:userId")),
+      company_number: currentHospital.company_number,
+      email: currentUser.email,
+      name: currentUser.name,
+    };
+
+    console.log(output);
+    createSchedule(output);
   };
   return (
     <>
