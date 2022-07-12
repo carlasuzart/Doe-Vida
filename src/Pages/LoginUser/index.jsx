@@ -23,7 +23,8 @@ function LoginUser() {
 
   const onSubmit = async (data) => {
     const response =await loginUser(data)
- 
+         console.log(response)
+         
     if(response.statusText==='OK'){
       const nameUser=response.data.user.name
 
