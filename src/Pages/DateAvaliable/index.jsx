@@ -68,6 +68,7 @@ function DateAvaliable() {
       company_number: currentHospital.company_number,
       email: currentUser.email,
       name: currentUser.name,
+      address: currentHospital.address,
     };
 
     console.log(output);
