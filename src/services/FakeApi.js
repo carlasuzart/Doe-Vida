@@ -7,7 +7,7 @@ const baseUrl = "https://s6-11-fernando-sramignon.herokuapp.com";
 
 //save token in localStorage
 const saveToken = (token) => {
-  localStorage.setItem("token", JSON.stringify(token));
+  localStorage.setItem("token", token);
 };
 
 export const loginUser = (data) =>
@@ -57,13 +57,28 @@ export const getHospitals = () => {
   });
 };
 
-export const getHospital = (id) => {
+export const getUser = (id) => {
   return axios({
     url: `${baseUrl}/users/${id}`,
     method: "GET",
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),
     },
+  }).then((resp) => {
+    return resp;
+  });
+};
+
+export const createSchedule = (data) => {
+  console.log(localStorage.getItem("token"));
+  return axios({
+    method: "POST",
+    url: "https://s6-11-fernando-sramignon.herokuapp.com/scheduling",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+    data: data,
   }).then((resp) => {
     return resp;
   });
