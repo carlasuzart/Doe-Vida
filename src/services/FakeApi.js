@@ -56,3 +56,15 @@ export const getHospitals = () => {
     return resp;
   });
 };
+
+export const getHospital = (id) => {
+  return axios({
+    url: `${baseUrl}/users/${id}`,
+    method: "GET",
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  }).then((resp) => {
+    return resp;
+  });
+};
