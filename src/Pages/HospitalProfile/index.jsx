@@ -2,12 +2,15 @@ import HeaderAlt from "../../components/HeaderAlt";
 import { Container, Schedules } from "./style";
 
 function HospitalProfile() {
+  const nameHospital = localStorage.getItem("@CapstoneM3:NameHospital");
+  const addressHospital = localStorage.getItem("@CapstoneM3:AddressHospital");
+
   return (
     <Container>
       <HeaderAlt type="hospital" />
       <div className="hospitalInfo">
-        <h2>Hospital da Posse</h2>
-        <p>Av. Henrique Duque Estrada Meyer, Nova Iguaçu, Rio de Janeiro</p>
+        <h2>{nameHospital}</h2>
+        <p>{addressHospital}</p>
         <button>e</button>
       </div>
       <Schedules>
