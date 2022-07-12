@@ -18,8 +18,12 @@ export const loginUser = (data) =>
     .then((resp) => {
       toast.success("Usuário Logado com sucesso");
       saveToken(resp.data.accessToken);
+      return resp;
     })
-    .catch((error) => toast.error(error.response.data));
+    .catch((error) => {
+      toast.error(error.response.data);
+      return error;
+    });
 
 export const registerUser = (data) =>
   axios({

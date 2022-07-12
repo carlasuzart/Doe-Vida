@@ -22,15 +22,14 @@ function LoginUser() {
   const history = useHistory();
 
   const onSubmit = async (data) => {
-    const response =await loginUser(data)
- 
-    if(response.statusText==='OK'){
-      const nameUser=response.data.user.name
+    const response = await loginUser(data);
 
-     localStorage.setItem("@CapstoneM3:NameUser", nameUser);
-      history.push("/Schedules")  
+    if (response.statusText === "OK") {
+      const nameUser = response.data.user.name;
+
+      localStorage.setItem("@CapstoneM3:NameUser", nameUser);
+      history.push("/Schedules");
     }
-
   };
 
   function goToRegisterPage() {
