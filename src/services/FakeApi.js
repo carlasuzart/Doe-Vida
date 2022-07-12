@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 //baseUrl
 // const baseUrl = "https://apicapstonejson.herokuapp.com";
-const baseUrl = "http://localhost:3002";
+const baseUrl = "https://s6-11-fernando-sramignon.herokuapp.com";
 
 //save token in localStorage
 const saveToken = (token) => {

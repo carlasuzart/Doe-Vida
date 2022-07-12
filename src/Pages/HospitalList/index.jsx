@@ -26,7 +26,7 @@ function HospitalList() {
             hospitals?.map((hospital) => (
               <HospitalListCard
                 id={hospital.id}
-                key={hospital.company_number}
+                key={hospital.id}
                 name={hospital.company_name}
                 address={hospital.address}
               />
