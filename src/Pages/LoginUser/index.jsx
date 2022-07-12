@@ -26,7 +26,9 @@ function LoginUser() {
 
     if (response.statusText === "OK") {
       const nameUser = response.data.user.name;
+      const userId = response.data.user.id;
 
+      localStorage.setItem("@CapstoneM3:userId", userId);
       localStorage.setItem("@CapstoneM3:NameUser", nameUser);
       history.push("/Schedules");
     }
