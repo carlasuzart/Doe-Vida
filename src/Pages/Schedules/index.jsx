@@ -4,6 +4,8 @@ import { Container } from "./style";
 import { useHistory } from "react-router-dom";
 import { schedulesContext } from "../../providers/SchedulesList";
 import { useContext } from "react";
+import {BiEdit} from "react-icons/bi"
+
 
 function Schedules() {
   const userId = localStorage.getItem("@CapstoneM3:userId");
@@ -44,8 +46,9 @@ function Schedules() {
       <div className="topPage">
         <div className="Infos">
           <div className="buttonEContainer">
+
             <button onClick={() => history.push("/EditUser")} className="E">
-              E
+              <BiEdit/>
             </button>
           </div>
           <h1 className="nameUser">Olá, {nameUser}</h1>

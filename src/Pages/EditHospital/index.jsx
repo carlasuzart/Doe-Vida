@@ -3,7 +3,8 @@ import HeaderAlt from "../../components/HeaderAlt"
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import {  useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 
 function EditHospital() {
 
