@@ -77,6 +77,12 @@ function DateAvaliable() {
     history.push("/Schedules");
     createSchedule(output);
   };
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      history.push("/")
+    }
+  }, [])
   return (
     <>
       <HeaderAlt />
