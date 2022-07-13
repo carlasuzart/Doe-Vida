@@ -24,10 +24,11 @@ function LoginHospital() {
     if (response.statusText === "OK") {
       const nameHospital = response.data.user.corporate_name;
       const addressHospital = response.data.user.address;
-     
+      const company_number=response.data.user.company_number;
+
       localStorage.setItem("@CapstoneM3:NameHospital", nameHospital);
       localStorage.setItem("@CapstoneM3:AddressHospital", addressHospital);
-
+      localStorage.setItem("@CapstoneM3:company_number", company_number); 
       history.push("/HospitalProfile");
     }
   };
