@@ -20,11 +20,13 @@ export const Container = styled.main`
     button {
       color: white;
       background: #034140;
-      width: 17px;
+      width: 21px;
+      height: 20px;
       position: absolute;
       top: 150px;
       left: 10px;
       border-radius: 5px;
+      font-size: 20px;
 
       transition: 0.4s;
       &:hover {
@@ -37,7 +39,7 @@ export const Container = styled.main`
     font-size: 21px;
     margin-top: 135px;
   }
-  .noAgendation{
+  .noAgendation {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +49,7 @@ export const Container = styled.main`
     h3 {
       font-size: 33.4883px;
       margin-top: 212px;
-    } 
+    }
   }
 `;
 
@@ -66,9 +68,10 @@ export const Schedules = styled.div`
     button {
       color: white;
       background: #034140;
-      width: 17px;
-      height: 18px;
+      width: 21px;
+      height: 20px;
       border-radius: 5px;
+      font-size: 20px;
 
       transition: 0.4s;
       &:hover {
@@ -86,12 +89,8 @@ export const Schedules = styled.div`
   }
 
   @media (min-width: 764px) {
-    
       h2 {
       font-size: 30.733px;
     }
-    
-    
     }
-  
 `;

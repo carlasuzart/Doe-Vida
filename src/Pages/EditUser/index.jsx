@@ -4,8 +4,12 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useHistory, } from "react-router-dom";
 
 function EditUser() {
+  const history = useHistory();
+  
   const formSchema = yup.object().shape({
     name: yup.string(),
     dataNascimento: yup
@@ -52,6 +56,12 @@ function EditUser() {
   const handleChange = (data) => {
     console.log(data);
   };
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      history.push("/")
+    }
+  }, [])
 
   return (
     <>

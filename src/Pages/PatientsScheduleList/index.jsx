@@ -1,7 +1,18 @@
 import HeaderAlt from "../../components/HeaderAlt";
 import { Container } from "./style";
+import { useHistory, } from "react-router-dom";
+import { useEffect } from "react";
 
 function PatientsScheduleList() {
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      history.push("/")
+    }
+  }, [])
+
   return (
     <Container>
       <HeaderAlt type="hospital" />

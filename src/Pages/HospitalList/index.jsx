@@ -4,13 +4,21 @@ import HospitalListCard from "../../components/HospitalListCard";
 import { Container } from "./style";
 import { getHospitals } from "../../services/FakeApi";
 import { useEffect } from "react";
+import { useHistory, } from "react-router-dom";
 
 function HospitalList() {
   const [hospitals, setHospitals] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     getHospitalList();
   }, []);
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      history.push("/")
+    }
+  }, [])
 
   async function getHospitalList() {
     const response = await getHospitals();

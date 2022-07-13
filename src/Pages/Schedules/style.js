@@ -21,7 +21,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     margin-right: 10px;
-    font-size: 9.74466px;
+    font-size: 20px;
   }
 
   .buttonEContainer {

@@ -4,7 +4,10 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 import { editUser } from "../../services/FakeApi";
+
+
 
 function EditHospital() {
   const history = useHistory();
@@ -62,6 +65,12 @@ function EditHospital() {
   const handleChange = (data) => {
     editUser(data, localStorage.getItem("@CapstoneM3:userId"));
   };
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      history.push("/")
+    }
+  }, [])
 
   return (
     <>
