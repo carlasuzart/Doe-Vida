@@ -88,7 +88,7 @@ function RegisterHospital() {
             </div>
             <input
               type="text"
-              placeholder="Digite aqui a social"
+              placeholder="Digite aqui a razão social"
               {...register("company_name")}
             />
           </div>
@@ -99,7 +99,7 @@ function RegisterHospital() {
             </div>
             <input
               type="text"
-              placeholder="Digite aqui o cnpj"
+              placeholder="Digite aqui o CNPJ"
               {...register("company_number")}
             />
           </div>
@@ -123,7 +123,7 @@ function RegisterHospital() {
             </div>
             <input
               type="text"
-              placeholder="Digite aqui seu telefone"
+              placeholder="Digite aqui o telefone"
               {...register("company_tel")}
             />
           </div>
@@ -146,7 +146,7 @@ function RegisterHospital() {
             </div>
             <input
               type="password"
-              placeholder="Digite aqui a senha"
+              placeholder="Digite aqui uma senha"
               {...register("password")}
             />
           </div>
