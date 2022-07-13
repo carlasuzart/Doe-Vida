@@ -1,7 +1,7 @@
 import HeaderAlt from "../../components/HeaderAlt";
 import { Container, Content } from "./style";
 import { toast } from "react-toastify";
-import { createSchedule, getUser } from "../../services/FakeApi";
+import { createSchedule, getShedule, getUser } from "../../services/FakeApi";
 import { useState } from "react";
 import { useEffect } from "react";
 import DatePicker from "react-datepicker";
@@ -50,8 +50,6 @@ function DateAvaliable() {
   };
 
   const dateFormat = (date) => {
-    console.log(new Date(date));
-
     let formatYearMonthDay = dateFormatAux(date);
 
     return formatYearMonthDay;
@@ -77,11 +75,24 @@ function DateAvaliable() {
       address: currentHospital.address,
     };
 
-    toast.success("Agendamento criado com sucesso!");
+    const schedule = await getShedule();
 
-    history.push("/Schedules");
-    await createSchedule(output);
-    requisiçãoShedules();
+    const currentDaySchedules = schedule.data.filter(
+      (item) =>
+        item.company_number === output.company_number &&
+        item.date === output.date
+    );
+
+    if (!output.date) {
+      toast.error("Por favor selecione uma data.");
+    } else if (currentDaySchedules.length >= 20) {
+      toast.error("Data esgotada. Por favor selecione outra");
+    } else {
+      toast.success("Agendamento criado com sucesso!");
+      history.push("/Schedules");
+      await createSchedule(output);
+      requisiçãoShedules();
+    }
   };
 
   useEffect(() => {
