@@ -31,7 +31,7 @@ function HospitalProfile() {
       return item.company_number===company_number
     });
 
-   console.log(schedulesFilterUser)
+
 
   function agendation() {
     if (schedulesFilterUser && schedulesFilterUser.length === 0) {

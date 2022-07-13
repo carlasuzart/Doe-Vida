@@ -1,6 +1,6 @@
 import HeaderAlt from "../../components/HeaderAlt";
 import { Container, Content } from "./style";
-
+import { toast } from "react-toastify";
 import { createSchedule, getUser } from "../../services/FakeApi";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -8,10 +8,12 @@ import DatePicker from "react-datepicker";
 import { registerLocale } from "react-datepicker";
 import ptBR from "date-fns/locale/pt-BR";
 import "react-datepicker/dist/react-datepicker.css";
+import { useHistory } from "react-router-dom";
 
 registerLocale("pt-br", ptBR);
 
 function DateAvaliable() {
+  const history = useHistory();
   const [currentHospital, setCurrentHospital] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
 
@@ -53,6 +55,7 @@ function DateAvaliable() {
   };
 
   const handleSubmit = (event) => {
+
     event.preventDefault();
     let scheduledYMD = "";
     if (startDate != null) scheduledYMD = dateFormat(startDate);
@@ -70,8 +73,8 @@ function DateAvaliable() {
       name: currentUser.name,
       address: currentHospital.address,
     };
-
-    console.log(output);
+   toast.success("Agendamento criado com sucesso!")
+     history.push("/Schedules")
     createSchedule(output);
   };
   return (
