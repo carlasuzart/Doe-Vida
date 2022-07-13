@@ -1,15 +1,15 @@
 import HeaderAlt from "../../components/HeaderAlt";
-import { Container, Content } from "./style";
+import { Container, RegisterForm } from "./style";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Link } from "react-router-dom";
+
 import { useEffect } from "react";
-import { useHistory, } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function EditUser() {
   const history = useHistory();
-  
+
   const formSchema = yup.object().shape({
     name: yup.string(),
     dataNascimento: yup
@@ -59,123 +59,109 @@ function EditUser() {
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      history.push("/")
+      history.push("/");
     }
-  }, [])
+  }, []);
 
   return (
     <>
       <HeaderAlt />
 
       <Container>
-        <Content>
-          <form onSubmit={handleSubmit(handleChange)}>
-            <h1>Editar</h1>
-
-            <div>
-              <div className="validacao">
-                <label>Nome</label>
-                <p className="erro">{errors.name?.message}</p>
-              </div>
-              <input
-                type="text"
-                placeholder=" Digite seu nome"
-                {...register("name")}
-              />
+        <RegisterForm onSubmit={handleSubmit(handleChange)}>
+          <h1>Editar Cadastro</h1>
+          <section className="inputSection">
+            <div className="inputs">
+              <label htmlFor="name">Nome</label>
+              <p className="erro">{errors.name?.message}</p>
             </div>
+            <input
+              type="text"
+              placeholder=" Digite seu nome"
+              {...register("name")}
+            />
 
-            <div>
-              <div className="validacao">
-                <label>Data de nascimento</label>
-                <p className="erro">{errors.dataNascimento?.message}</p>
-              </div>
-              <input
-                type="text"
-                placeholder=" ex: 07/07/1979"
-                {...register("dataNascimento")}
-              />
+            <div className="inputs">
+              <label htmlFor="dataNascimento">Data de nascimento</label>
+              <p className="erro">{errors.dataNascimento?.message}</p>
             </div>
+            <input
+              type="text"
+              placeholder=" ex: 07/07/1979"
+              {...register("dataNascimento")}
+            />
 
-            <div>
-              <div className="validacao">
-                <label>CPF</label>
-                <p className="erro">{errors.cpf?.message}</p>
-              </div>
-              <input
-                type="text"
-                placeholder=" ex: 123.456.789-01"
-                {...register("cpf")}
-              />
+            <div className="inputs">
+              <label htmlFor="cpf">CPF</label>
+              <p className="erro">{errors.cpf?.message}</p>
             </div>
+            <input
+              type="text"
+              placeholder=" ex: 123.456.789-01"
+              {...register("cpf")}
+            />
 
-            <div>
-              <div className="validacao">
-                <label>Email</label>
-                <p className="erro">{errors.email?.message}</p>
-              </div>
-              <input
-                type="text"
-                placeholder=" Digite seu email"
-                {...register("email")}
-              />
+            <div className="inputs">
+              <label htmlFor="email">Email</label>
+              <p className="erro">{errors.email?.message}</p>
             </div>
+            <input
+              type="text"
+              placeholder=" Digite seu email"
+              {...register("email")}
+            />
 
-            <div>
-              <div className="validacao">
-                <label>Endereço</label>
-                <p className="erro">{errors.endereco?.message}</p>
-              </div>
-              <input
-                type="text"
-                placeholder=" Digite seu endereço"
-                {...register("endereco")}
-              />
+            <div className="inputs">
+              <label htmlFor="endereco">Endereço</label>
+              <p className="erro">{errors.endereco?.message}</p>
             </div>
+            <input
+              type="text"
+              placeholder=" Digite seu endereço"
+              {...register("endereco")}
+            />
 
-            <div>
-              <div className="validacao">
-                <label>Telefone</label>
-                <p className="erro">{errors.telefone?.message}</p>
-              </div>
-              <input
-                type="text"
-                placeholder=" Digite seu telefone"
-                {...register("telefone")}
-              />
+            <div className="inputs">
+              <label htmlFor="telefone">Telefone</label>
+              <p className="erro">{errors.telefone?.message}</p>
             </div>
+            <input
+              type="text"
+              placeholder=" Digite seu telefone"
+              {...register("telefone")}
+            />
 
-            <div>
-              <div className="validacao">
-                <label>Senha</label>
-                <p className="erro">{errors.senha?.message}</p>
-              </div>
-              <input
-                type="password"
-                placeholder=" Digite uma senha"
-                {...register("senha")}
-              />
+            <div className="inputs">
+              <label htmlFor="senha">Senha</label>
+              <p className="erro">{errors.senha?.message}</p>
             </div>
+            <input
+              type="password"
+              placeholder=" Digite uma senha"
+              {...register("senha")}
+            />
 
-            <div>
-              <div className="validacao">
-                <label>Confirmar senha</label>
-                <p className="erro">{errors.confirmarSenha?.message}</p>
-              </div>
-              <input
-                type="password"
-                placeholder=" Confirme sua senha"
-                {...register("confirmarSenha")}
-              />
+            <div className="inputs">
+              <label htmlFor="confirmarSenha">Confirmar senha</label>
+              <p className="erro">{errors.confirmarSenha?.message}</p>
             </div>
-
-            <div className="btn">
-              <button type="submit">Editar</button>
-            </div>
-            <span>
-              <Link to="/Schedules">Voltar</Link>
+            <input
+              type="password"
+              placeholder=" Confirme sua senha"
+              {...register("confirmarSenha")}
+            />
+          </section>
+          <section className="buttonSection">
+            <button type="submit">Editar Cadastro</button>
+            <span
+              onClick={() => {
+                history.push("/Schedules");
+              }}
+            >
+              Voltar
             </span>
-          </form>
-        </Content>
+          </section>
+        </RegisterForm>
       </Container>
     </>
   );

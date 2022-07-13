@@ -7,8 +7,6 @@ import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { editUser } from "../../services/FakeApi";
 
-
-
 function EditHospital() {
   const history = useHistory();
 
@@ -68,9 +66,9 @@ function EditHospital() {
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      history.push("/")
+      history.push("/");
     }
-  }, [])
+  }, []);
 
   return (
     <>
@@ -94,7 +92,7 @@ function EditHospital() {
             </div>
             <input
               type="text"
-              placeholder="Digite aqui a social"
+              placeholder="Digite aqui a razão social"
               {...register("razaoSocial")}
             />
             <div className="inputs">
@@ -103,7 +101,7 @@ function EditHospital() {
             </div>
             <input
               type="text"
-              placeholder="Digite aqui o cnpj"
+              placeholder="Digite aqui o CNPJ"
               {...register("cnpj")}
             />
             <div className="inputs">
@@ -130,7 +128,7 @@ function EditHospital() {
             </div>
             <input
               type="text"
-              placeholder="Digite seu telefone"
+              placeholder="Digite o telefone"
               {...register("telefone")}
             />
             <div className="inputs">
@@ -159,7 +157,7 @@ function EditHospital() {
                 history.push("/HospitalProfile");
               }}
             >
-              voltar
+              Voltar
             </span>
           </section>
         </RegisterForm>
