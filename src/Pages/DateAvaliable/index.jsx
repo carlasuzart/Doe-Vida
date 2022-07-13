@@ -9,10 +9,13 @@ import { registerLocale } from "react-datepicker";
 import ptBR from "date-fns/locale/pt-BR";
 import "react-datepicker/dist/react-datepicker.css";
 import { useHistory } from "react-router-dom";
+import { schedulesContext } from "../../providers/SchedulesList";
+import { useContext } from "react";
 
 registerLocale("pt-br", ptBR);
 
 function DateAvaliable() {
+  const { requisiçãoShedules } = useContext(schedulesContext);
   const history = useHistory();
   const [currentHospital, setCurrentHospital] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
@@ -54,7 +57,7 @@ function DateAvaliable() {
     return formatYearMonthDay;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     let scheduledYMD = "";
     if (startDate != null) scheduledYMD = dateFormat(startDate);
@@ -73,10 +76,19 @@ function DateAvaliable() {
       name: currentUser.name,
       address: currentHospital.address,
     };
+
     toast.success("Agendamento criado com sucesso!");
+
     history.push("/Schedules");
-    createSchedule(output);
+    await createSchedule(output);
+    requisiçãoShedules();
   };
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      history.push("/");
+    }
+  }, []);
   return (
     <>
       <HeaderAlt />
