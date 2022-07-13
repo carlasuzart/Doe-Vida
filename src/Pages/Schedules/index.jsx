@@ -45,7 +45,7 @@ function Schedules() {
         <div className="Infos">
           <div className="buttonEContainer">
             <button onClick={() => history.push("/EditUser")} className="E">
-              E
+              e
             </button>
           </div>
           <h1 className="nameUser">Olá, {nameUser}</h1>
