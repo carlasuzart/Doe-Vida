@@ -7,43 +7,36 @@ import { Link } from "react-router-dom";
 
 function EditUser() {
   const formSchema = yup.object().shape({
-    name: yup.string().required("Este campo é obrigatório"),
-    dataNacimento: yup
+    name: yup.string(),
+    dataNascimento: yup
       .string()
-      .required("Este campo é obrigatório")
-      .matches(
-        "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$",
-        "Formato da data:dd/mm/aaaa"
-      ),
-    cpf: yup
-      .string()
-      .required("Este campo é obrigatório")
-      .matches(
-        "[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}",
-        "Formato para CPF:000.000.000-00"
-      ),
-    endereco: yup.string().required("Este campo é obrigatório"),
+      .matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$", {
+        message: "Formato da data:dd/mm/aaaa",
+        excludeEmptyString: true,
+      }),
+    cpf: yup.string().matches("[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}", {
+      message: "Formato para CPF:000.000.000-00",
+      excludeEmptyString: true,
+    }),
     telefone: yup
       .string()
-      .required("Este campo é obrigatório")
-      .matches(
-        "^([1-9]{2}) [9]{0,1}[6-9]{1}[0-9]{3}-[0-9]{4}$",
-        "Formato do telefone :00 0000-0000"
-      ),
-    email: yup
-      .string()
-      .required("Este campo é obrigatório")
-      .email("Email inválido"),
+      .matches("^([1-9]{2}) [9]{0,1}[6-9]{1}[0-9]{3}-[0-9]{4}$", {
+        message: "Formato do telefone :00 0000-0000",
+        excludeEmptyString: true,
+      }),
+    email: yup.string().email("Email inválido"),
     senha: yup
       .string()
-      .required("Este campo é obrigatório")
       .matches(
         "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$",
-        " A senha deve conter 8 caracteres, uma letra maiúscula, um número e um caractere especial!"
+        {
+          message:
+            " A senha deve conter 8 caracteres, uma letra maiúscula, um número e um caractere especial!",
+          excludeEmptyString: true,
+        }
       ),
     confirmarSenha: yup
       .string()
-      .required("Este campo é obrigatório")
       .oneOf([yup.ref("senha"), null], "As senhas devem corresponder"),
     check: yup.boolean().isTrue("Você não aceitou os termos!"),
   });
@@ -84,12 +77,12 @@ function EditUser() {
             <div>
               <div className="validacao">
                 <label>Data de nascimento</label>
-                <p className="erro">{errors.dataNacimento?.message}</p>
+                <p className="erro">{errors.dataNascimento?.message}</p>
               </div>
               <input
                 type="text"
                 placeholder=" ex: 07/07/1979"
-                {...register("dataNacimento")}
+                {...register("dataNascimento")}
               />
             </div>
 

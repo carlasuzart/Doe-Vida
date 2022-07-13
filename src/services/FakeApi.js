@@ -83,3 +83,21 @@ export const createSchedule = (data) => {
     return resp;
   });
 };
+
+export const getShedule = () =>
+  axios({
+    method: "GET",
+    url: `https://s6-11-fernando-sramignon.herokuapp.com/scheduling`,
+  }).then((resp) => resp);
+
+export const editUser = (data, id) => {
+  axios({
+    url: `${baseUrl}/users/${id}`,
+    method: "PATCH",
+    data: data,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  }).then((resp) => console.log(resp));
+};
