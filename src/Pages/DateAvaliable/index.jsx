@@ -55,7 +55,6 @@ function DateAvaliable() {
   };
 
   const handleSubmit = (event) => {
-
     event.preventDefault();
     let scheduledYMD = "";
     if (startDate != null) scheduledYMD = dateFormat(startDate);
@@ -69,12 +68,13 @@ function DateAvaliable() {
       date: formData.scheduledDateFmtYMD,
       userId: Number(localStorage.getItem("@CapstoneM3:userId")),
       company_number: currentHospital.company_number,
+      company_name: currentHospital.company_name,
       email: currentUser.email,
       name: currentUser.name,
       address: currentHospital.address,
     };
-   toast.success("Agendamento criado com sucesso!")
-     history.push("/Schedules")
+    toast.success("Agendamento criado com sucesso!");
+    history.push("/Schedules");
     createSchedule(output);
   };
   return (

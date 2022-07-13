@@ -19,14 +19,20 @@ function Schedules() {
     });
 
   function agendation() {
+    console.log(schedulesFilterUser);
     if (schedulesFilterUser && schedulesFilterUser.length === 0) {
       return <h3>Nenhum agendamento</h3>;
     }
     return (
       <ul>
         {schedulesFilterUser &&
-          schedulesFilterUser.map(({ id, date, address }) => (
-            <CardSchedulesUser address={address} date={date} key={id} />
+          schedulesFilterUser.map(({ id, date, address, company_name }) => (
+            <CardSchedulesUser
+              name={company_name}
+              address={address}
+              date={date}
+              key={id}
+            />
           ))}
       </ul>
     );
