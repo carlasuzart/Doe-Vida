@@ -4,7 +4,8 @@ import { Container } from "./style";
 import { useHistory, } from "react-router-dom";
 import { useEffect } from "react";
 import { schedulesContext } from "../../providers/SchedulesList";
-import { useContext} from "react";
+import { useContext } from "react";
+import {BiEdit} from "react-icons/bi"
 
 
 
@@ -58,7 +59,9 @@ console.log(SchedulesList)
       <div className="topPage">
         <div className="Infos">
           <div className="buttonEContainer">
-            <button onClick={() => history.push("/EditUser")} className="E">E</button>
+            <button onClick={() => history.push("/EditUser")} className="E">
+              <BiEdit/>
+            </button>
           </div>
           <h1 className="nameUser">Olá, {nameUser}</h1>
         </div>

@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import CardSchedulesHospital from "../../components/CardSchedulesHospital/index.jsx";
 import { schedulesContext } from "../../providers/SchedulesList";
 import { useContext } from "react";
+import {BiEdit} from "react-icons/bi"
 
 
 function HospitalProfile() {
@@ -62,12 +63,13 @@ function HospitalProfile() {
       <div className="hospitalInfo">
         <h2>{nameHospital}</h2>
         <p>{addressHospital}</p>
-        <button onClick={() => history.push("/EditHospital")}>e</button>
+        <button className="edit" onClick={() => history.push("/EditHospital")}>
+          <BiEdit/>
+        </button>
       </div>
       <Schedules>
         <div className="scheduleTitle">
           <h2>Agendamentos</h2>
-          <button onClick={() => history.push("/EditHospital")}>e</button>
         </div>
 
         {agendation()}
