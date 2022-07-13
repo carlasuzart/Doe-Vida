@@ -27,11 +27,20 @@ function HospitalProfile() {
         </div>
       );
     }
+
+    let dates = [];
+    schedulesFilterUser.forEach((user) => {
+      dates.push(user.date);
+    });
+
+    //creates a non repeting elements array
+    dates = [...new Set(dates)];
+
     return (
       <ul className="scheduleCards">
-        {schedulesFilterUser &&
-          schedulesFilterUser.map(({ id, date, name }) => (
-            <CardSchedulesHospital date={date} name={name} key={id} />
+        {dates &&
+          dates.map((date, index) => (
+            <CardSchedulesHospital date={date} name={""} key={index} />
           ))}
       </ul>
     );
