@@ -2,30 +2,19 @@ import CardSchedulesUser from "../../components/CardSchedulesUser/index.jsx";
 import HeaderAlt from "../../components/HeaderAlt";
 import { Container } from "./style";
 import { useHistory } from "react-router-dom";
-/* import { getShedule } from "../../services/FakeApi.js"; */
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { schedulesContext } from "../../providers/SchedulesList";
+import { useContext } from "react";
 
 function Schedules() {
-  const [arrSchedules, setArrSchedules] = useState();
   const userId = localStorage.getItem("@CapstoneM3:userId");
-
-  useEffect(() => {
-    axios({
-      method: "GET",
-      url: `https://s6-11-fernando-sramignon.herokuapp.com/scheduling`,
-    }).then((resp) => {
-      setArrSchedules(resp.data);
-      return resp;
-    });
-  }, []);
+  const { SchedulesList } = useContext(schedulesContext);
 
   const history = useHistory();
   const nameUser = localStorage.getItem("@CapstoneM3:NameUser");
 
   const schedulesFilterUser =
-    arrSchedules &&
-    arrSchedules.filter((item) => {
+    SchedulesList &&
+    SchedulesList.filter((item) => {
       return item.userId === +userId;
     });
 
@@ -36,12 +25,12 @@ function Schedules() {
     return (
       <ul>
         {schedulesFilterUser &&
-          schedulesFilterUser.map(({ id,date,address }) => <CardSchedulesUser address={address} date={date} key={id} />)}
+          schedulesFilterUser.map(({ id, date, address }) => (
+            <CardSchedulesUser address={address} date={date} key={id} />
+          ))}
       </ul>
     );
   }
-
- 
 
   return (
     <Container>
