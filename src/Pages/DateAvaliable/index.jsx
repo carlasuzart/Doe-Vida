@@ -8,10 +8,13 @@ import DatePicker from "react-datepicker";
 import { registerLocale } from "react-datepicker";
 import ptBR from "date-fns/locale/pt-BR";
 import "react-datepicker/dist/react-datepicker.css";
+import { useHistory } from "react-router-dom";
 
 registerLocale("pt-br", ptBR);
 
 function DateAvaliable() {
+
+  const history = useHistory();
   const [currentHospital, setCurrentHospital] = useState([]);
   useEffect(() => {
     getHospitalById();
@@ -58,6 +61,12 @@ function DateAvaliable() {
 
     console.log(formData);
   };
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      history.push("/")
+    }
+  }, [])
   return (
     <>
       <HeaderAlt />

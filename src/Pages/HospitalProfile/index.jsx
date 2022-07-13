@@ -1,11 +1,18 @@
 import HeaderAlt from "../../components/HeaderAlt";
 import { Container, Schedules } from "./style";
 import {  useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
 function HospitalProfile() {
   const history = useHistory()
   const nameHospital = localStorage.getItem("@CapstoneM3:NameHospital");
   const addressHospital = localStorage.getItem("@CapstoneM3:AddressHospital");
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      history.push("/")
+    }
+  }, [])
 
   return (
     <Container>
