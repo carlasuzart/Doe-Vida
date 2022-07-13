@@ -83,4 +83,3 @@ export const createSchedule = (data) => {
     return resp;
   });
 };
-

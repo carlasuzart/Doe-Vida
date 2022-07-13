@@ -14,6 +14,7 @@ import RegisterUser from "../Pages/RegisterUser";
 import Schedules from "../Pages/Schedules";
 import PatientsScheduleList from "../Pages/PatientsScheduleList";
 import HospitalList from "../Pages/HospitalList";
+import SchedulesByDate from "../Pages/SchedulesByDate";
 
 function Routes() {
   return (
@@ -56,6 +57,9 @@ function Routes() {
       </Route>
       <Route exact path="/HospitalList">
         <HospitalList />
+      </Route>
+      <Route exact path="/SchedulesByDate">
+        <SchedulesByDate />
       </Route>
     </Switch>
   );

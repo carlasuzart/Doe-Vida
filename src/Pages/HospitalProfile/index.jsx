@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import CardSchedulesHospital from "../../components/CardSchedulesHospital/index.jsx";
 import { schedulesContext } from "../../providers/SchedulesList";
 import { useContext } from "react";
-import { set } from "react-hook-form";
 
 function HospitalProfile() {
   const history = useHistory();
@@ -36,7 +35,6 @@ function HospitalProfile() {
 
     //creates a non repeting elements array
     dates = [...new Set(dates)];
-    console.log(dates);
 
     return (
       <ul className="scheduleCards">
