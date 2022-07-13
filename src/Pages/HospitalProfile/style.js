@@ -63,9 +63,7 @@ export const Schedules = styled.div`
     margin-top: 10px;
     justify-content: space-between;
 
-    h2 {
-      font-size: 18px;
-    }
+   
 
     button {
       color: white;
@@ -89,4 +87,10 @@ export const Schedules = styled.div`
     align-items: center;
     margin-top: 1.6rem;
   }
+
+  @media (min-width: 764px) {
+      h2 {
+      font-size: 30.733px;
+    }
+    }
 `;
