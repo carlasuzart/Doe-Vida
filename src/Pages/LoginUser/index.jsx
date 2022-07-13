@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Container, Content } from "./style";
+import { Container, LoginForm } from "./style";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { loginUser } from "../../services/FakeApi";
@@ -39,33 +39,42 @@ function LoginUser() {
   }
   return (
     <Container>
-      <Content>
+      <section className="logoUser">
         <h1>Doe Vida</h1>
-        <h2>Doador</h2>
-
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <p>Login</p>
-          <div>
-            <label>Email</label>
-            <span>{errors.email?.message} </span>
+        <span>Doador</span>
+      </section>
+      <LoginForm onSubmit={handleSubmit(onSubmit)}>
+        <h2>Login</h2>
+        <section className="inputSection">
+          <div className="input">
+            <div className="labelDiv">
+              <label htmlFor="email">Email</label>
+              {errors?.email?.message && (
+                <span> - {errors?.email?.message}</span>
+              )}
+            </div>
             <input
-              name="email"
-              type="text"
-              placeholder=" Digite aqui seu email"
+              type="email"
+              placeholder=" Digite aqui o seu email"
               {...register("email")}
             />
           </div>
-          <div>
-            <label>Senha</label>
-            <span>{errors.password?.message} </span>
+          <div className="input">
+            <div className="labelDiv">
+              <label htmlFor="password">Senha</label>
+              {errors?.password?.message && (
+                <span> - {errors?.password?.message} </span>
+              )}
+            </div>
             <input
-              name="password"
               type="password"
-              placeholder=" Digite sua senha"
+              placeholder=" Digite aqui sua senha"
               {...register("password")}
             />
           </div>
-          <button>Entrar</button>
+        </section>
+        <section className="buttonSection">
+          <button type="submit">Entrar</button>
           <span onClick={goToRegisterPage}>Não possui uma conta?</span>
           <span
             onClick={() => {
@@ -75,8 +84,8 @@ function LoginUser() {
           >
             Voltar
           </span>
-        </form>
-      </Content>
+        </section>
+      </LoginForm>
     </Container>
   );
 }
