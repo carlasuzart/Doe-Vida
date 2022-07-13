@@ -7,31 +7,30 @@ export const SchedulesProvider = ({ children }) => {
   const [SchedulesList, setSchedulesList] = useState([]);
   const [currentSchedule, setCurrentSchedule] = useState();
 
- function requisiçãoShedules() {
-    
-       axios({
-         method: "GET",
-         url: `https://s6-11-fernando-sramignon.herokuapp.com/scheduling`,
-       }).then((resp) => {
-         setSchedulesList(resp.data)
-         return resp;
-       });
-   }
-    
-    useEffect(()=>{
-        requisiçãoShedules()
-    },[]) 
-      
+  function requisiçãoShedules() {
+    axios({
+      method: "GET",
+      url: `https://s6-11-fernando-sramignon.herokuapp.com/scheduling`,
+    }).then((resp) => {
+      setSchedulesList(resp.data);
+      return resp;
+    });
+  }
+
+  useEffect(() => {
+    requisiçãoShedules();
+  }, []);
+
   return (
     <schedulesContext.Provider
       value={{
         SchedulesList,
         currentSchedule,
         setCurrentSchedule,
+        requisiçãoShedules,
       }}
     >
       {children}
     </schedulesContext.Provider>
   );
 };
-
