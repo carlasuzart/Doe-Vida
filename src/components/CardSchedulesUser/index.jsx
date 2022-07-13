@@ -1,16 +1,18 @@
 import { Li } from ".";
 
-function CardSchedulesUser() {
+function CardSchedulesUser({ date, address, name }) {
+  const mes = date.slice(5, 7);
+  const ano = date.slice(0, 4);
+  const dia = date.slice(8, 10);
+
   return (
     <Li>
       <div className="infoDiv">
-        <h4>Hospital da Posse</h4>
-        <span>13/07/2022</span>
+        <h4>{name}</h4>
+        <span>{`${dia}/${mes}/${ano}`}</span>
       </div>
 
-      <p className="endereçoHospital">
-        Av. Henrique Duque Estrada Meyer, Nova Iguaçu, Rio de Janeiro
-      </p>
+      <p className="endereçoHospital">{address}</p>
     </Li>
   );
 }

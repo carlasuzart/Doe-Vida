@@ -3,9 +3,16 @@ import HeaderAlt from "../../components/HeaderAlt";
 import { Container } from "./style";
 import { useHistory, } from "react-router-dom";
 import { useEffect } from "react";
+import { schedulesContext } from "../../providers/SchedulesList";
+import { useContext } from "react";
+
 
 function Schedules() {
+  const userId = localStorage.getItem("@CapstoneM3:userId");
+  const { SchedulesList } = useContext(schedulesContext);
+
   const history = useHistory();
+
   const nameUser = localStorage.getItem("@CapstoneM3:NameUser")
  
   useEffect(() => {
@@ -14,8 +21,31 @@ function Schedules() {
     } 
   }, [])
 
+  const schedulesFilterUser =
+    SchedulesList &&
+    SchedulesList.filter((item) => {
+      return item.userId === +userId;
+    });
 
-
+  function agendation() {
+    console.log(schedulesFilterUser);
+    if (schedulesFilterUser && schedulesFilterUser.length === 0) {
+      return <h3>Nenhum agendamento</h3>;
+    }
+    return (
+      <ul>
+        {schedulesFilterUser &&
+          schedulesFilterUser.map(({ id, date, address, company_name }) => (
+            <CardSchedulesUser
+              name={company_name}
+              address={address}
+              date={date}
+              key={id}
+            />
+          ))}
+      </ul>
+    );
+  }
 
   return (
     <Container>
@@ -27,18 +57,12 @@ function Schedules() {
           </div>
           <h1 className="nameUser">Olá, {nameUser}</h1>
         </div>
-
         <button onClick={() => history.push("/Requirements")} className="doar">Doar</button>
       </div>
 
       <hr />
       <h2>Agendamentos</h2>
-      <main>
-        {/*  <h3>Nenhum agendamento</h3>  */}
-        <ul>
-          <CardSchedulesUser />
-        </ul>
-      </main>
+      <main>{agendation()}</main>
     </Container>
   );
 }

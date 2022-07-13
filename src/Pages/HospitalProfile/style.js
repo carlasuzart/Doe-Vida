@@ -32,6 +32,23 @@ export const Container = styled.main`
       }
     }
   }
+  h3 {
+    color: #7d7d7d;
+    font-size: 21px;
+    margin-top: 135px;
+  }
+  .noAgendation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (min-width: 764px) {
+    h3 {
+      font-size: 33.4883px;
+      margin-top: 212px;
+    } 
+  }
 `;
 
 export const Schedules = styled.div`
@@ -70,23 +87,6 @@ export const Schedules = styled.div`
     margin-top: 1.6rem;
   }
 
-  .cardItem {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.4rem 1.3rem;
-    width: 90%;
-    max-width: 500px;
-    height: 66px;
 
-    font-size: 14px;
-    color: white;
-    background: #591c21;
-
-    cursor: pointer;
-
-    transition: 0.4s;
-    &:hover {
-      background: #8d1f28;
-    }
-  }
+  
 `;
