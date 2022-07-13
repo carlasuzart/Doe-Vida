@@ -84,14 +84,3 @@ export const createSchedule = (data) => {
   });
 };
 
-
-/* export const getShedule = () =>
-  axios({
-    method: "GET",
-    url: `https://s6-11-fernando-sramignon.herokuapp.com/scheduling`,
-  }).then((resp) =>{
-
-    localStorage.setItem( "@CapstoneM3:Schedules", JSON.stringify(resp.data));
-    return resp 
-  }); */
-
