@@ -5,11 +5,14 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { useHistory, } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { userDataContext } from "../../providers/UserDataProfile";
+import { useContext } from "react";
 
 function EditUser() {
   const history = useHistory();
-  
+  const { UserDataProfile } = useContext(userDataContext);
+  console.log(UserDataProfile.email);
   const formSchema = yup.object().shape({
     name: yup.string(),
     dataNascimento: yup
@@ -59,9 +62,12 @@ function EditUser() {
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      history.push("/")
+      history.push("/");
+      window.location.reload()
     }
-  }, [])
+  }, []);
+  const teste = UserDataProfile.email;
+  console.log(teste);
 
   return (
     <>
@@ -79,6 +85,7 @@ function EditUser() {
               </div>
               <input
                 type="text"
+                defaultValue={ teste}
                 placeholder=" Digite seu nome"
                 {...register("name")}
               />

@@ -11,6 +11,7 @@ import { editUser } from "../../services/FakeApi";
 function EditHospital() {
   const history = useHistory();
 
+
   const validationForm = yup.object().shape({
     name: yup.string().required("Este campo é obrigatório"),
     razaoSocial: yup.string().required("Este campo é obrigatório"),

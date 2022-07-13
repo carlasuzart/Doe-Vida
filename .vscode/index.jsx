@@ -15,7 +15,7 @@ function Schedules() {
   const history = useHistory();
 
   const nameUser = localStorage.getItem("@CapstoneM3:NameUser");
-    
+     console.log(requisiçãoDados())
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       history.push("/");
@@ -55,10 +55,9 @@ function Schedules() {
         <div className="Infos">
           <div className="buttonEContainer">
             <button
-               onClick={async () =>   {
-                 await history.push("/EditUser");
-                 requisiçãoDados()
-               console.log("aqui", requisiçãoDados())
+              onClick={() => {
+                requisiçãoDados()
+                history.push("/EditUser");
               }}
               className="E"
             >
