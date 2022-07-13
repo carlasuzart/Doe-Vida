@@ -1,4 +1,4 @@
-import { Container, Content } from "./style";
+import { Container, RegisterForm } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -26,7 +26,7 @@ function RegisterUser() {
       .required("CPF Obrigatório")
       .matches(
         /^\d{3}\.\d{3}\.\d{3}-\d{2}$/,
-        "Formato do Cpf: 000.000.000-00."
+        "Formato do CPF: 000.000.000-00."
       ),
     tel: yup
       .string()
@@ -72,36 +72,36 @@ function RegisterUser() {
   }
   return (
     <Container>
-      <Content>
-        <form onSubmit={handleSubmit(registerUserForm)}>
-          <h1>Cadastro</h1>
-          <div>
+      <RegisterForm onSubmit={handleSubmit(registerUserForm)}>
+        <h1>Cadastro</h1>
+        <section className="inputSection">
+          <div className="input">
             <div className="labelArea">
-              <label>Nome</label>
+              <label htmlFor="name">Nome</label>
               <p className="Error">{errors.name?.message}</p>
             </div>
             <input
               type="text"
-              placeholder=" Digite seu nome"
+              placeholder="Digite aqui seu nome"
               {...register("name")}
             />
           </div>
 
-          <div>
+          <div className="input">
             <div className="labelArea">
-              <label>Data de nascimento</label>
+              <label htmlFor="birth_date">Data de nascimento</label>
               <p className="Error">{errors.birth_date?.message}</p>
             </div>
             <input
               type="text"
-              placeholder=" ex: 07/07/1979"
+              placeholder="ex: 07/07/1979"
               {...register("birth_date")}
             />
           </div>
 
-          <div>
+          <div className="input">
             <div className="labelArea">
-              <label>CPF</label>
+              <label htmlFor="user_number">CPF</label>
               <p className="Error">{errors.user_number?.message}</p>
             </div>
             <input
@@ -110,21 +110,21 @@ function RegisterUser() {
               {...register("user_number")}
             />
           </div>
-          <div>
+          <div className="input">
             <div className="labelArea">
-              <label>Email</label>
+              <label htmlFor="email">Email</label>
               <p className="Error">{errors.email?.message}</p>
             </div>
             <input
               type="text"
-              placeholder=" Digite seu email"
+              placeholder=" Digite aqui seu email"
               {...register("email")}
             />
           </div>
 
-          <div>
+          <div className="input">
             <div className="labelArea">
-              <label>Telefone</label>
+              <label htmlFor="tel">Telefone</label>
               <p className="Error">{errors.tel?.message}</p>
             </div>
             <input
@@ -134,9 +134,9 @@ function RegisterUser() {
             />
           </div>
 
-          <div>
+          <div className="input">
             <div className="labelArea">
-              <label>Endereço</label>
+              <label htmlFor="address">Endereço</label>
               <p className="Error"> {errors.address?.message}</p>
             </div>
             <input
@@ -146,9 +146,9 @@ function RegisterUser() {
             />
           </div>
 
-          <div>
+          <div className="input">
             <div className="labelArea">
-              <label>Senha</label>
+              <label htmlFor="password">Senha</label>
               <p className="Error"> {errors.password?.message}</p>
             </div>
             <input
@@ -157,9 +157,9 @@ function RegisterUser() {
               {...register("password")}
             />
           </div>
-          <div>
+          <div className="input">
             <div className="labelArea">
-              <label>Confirmar senha</label>
+              <label htmlFor="passwordConfirm">Confirmar senha</label>
               <p className="Error"> {errors.passwordConfirm?.message}</p>
             </div>
             <input
@@ -168,6 +168,8 @@ function RegisterUser() {
               {...register("passwordConfirm")}
             />
           </div>
+        </section>
+        <section className="buttonSection">
           <button type="submit">Cadastrar</button>
           <span
             onClick={() => {
@@ -176,8 +178,8 @@ function RegisterUser() {
           >
             Voltar
           </span>
-        </form>
-      </Content>
+        </section>
+      </RegisterForm>
     </Container>
   );
 }

@@ -1,11 +1,11 @@
 import { createContext } from "react";
 import axios from "axios";
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 export const schedulesContext = createContext([]);
 
-
 export const SchedulesProvider = ({ children }) => {
-    const [SchedulesList,setSchedulesList] =useState([]) ;
+  const [SchedulesList, setSchedulesList] = useState([]);
+  const [currentSchedule, setCurrentSchedule] = useState();
 
  function requisiçãoShedules() {
     
@@ -22,11 +22,16 @@ export const SchedulesProvider = ({ children }) => {
         requisiçãoShedules()
     },[]) 
       
-    
+  return (
+    <schedulesContext.Provider
+      value={{
+        SchedulesList,
+        currentSchedule,
+        setCurrentSchedule,
+      }}
+    >
+      {children}
+    </schedulesContext.Provider>
+  );
+};
 
-    return (
-      <schedulesContext.Provider value={{ SchedulesList,requisiçãoShedules }}>
-        {children}
-      </schedulesContext.Provider>
-    );
-  };

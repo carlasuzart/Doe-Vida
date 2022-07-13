@@ -1,12 +1,20 @@
 import { Main } from "./style";
 import HeaderAlt from "../../components/HeaderAlt"
-import {  useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
 
 
 function Requirements() {
 
   const history = useHistory()
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      history.push("/")
+    }
+  }, [])
+
   return (
     <div>
       <HeaderAlt />

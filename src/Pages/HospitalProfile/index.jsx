@@ -1,14 +1,24 @@
 import HeaderAlt from "../../components/HeaderAlt";
 import { Container, Schedules } from "./style";
-import { useHistory } from "react-router-dom";
+
+import {  useHistory } from "react-router-dom";
+import { useEffect } from "react";
 import CardSchedulesHospital from "../../components/CardSchedulesHospital/index.jsx";
 import { schedulesContext } from "../../providers/SchedulesList";
 import { useContext } from "react";
+
 
 function HospitalProfile() {
   const history = useHistory();
   const nameHospital = localStorage.getItem("@CapstoneM3:NameHospital");
   const addressHospital = localStorage.getItem("@CapstoneM3:AddressHospital");
+
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      history.push("/")
+    }
+  }, [])
 
   const company_number = localStorage.getItem("@CapstoneM3:company_number");
   const { SchedulesList } = useContext(schedulesContext);
@@ -27,11 +37,20 @@ function HospitalProfile() {
         </div>
       );
     }
+
+    let dates = [];
+    schedulesFilterUser.forEach((user) => {
+      dates.push(user.date);
+    });
+
+    //creates a non repeting elements array
+    dates = [...new Set(dates)];
+
     return (
       <ul className="scheduleCards">
-        {schedulesFilterUser &&
-          schedulesFilterUser.map(({ id, date, name }) => (
-            <CardSchedulesHospital date={date} name={name} key={id} />
+        {dates &&
+          dates.map((date, index) => (
+            <CardSchedulesHospital date={date} name={""} key={index} />
           ))}
       </ul>
     );
