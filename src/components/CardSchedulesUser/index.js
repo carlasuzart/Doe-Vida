@@ -5,9 +5,8 @@ export const Li = styled.li`
   justify-content: space-between;
   align-items: center;
   list-style: none;
-  display: flex;
   width: 270px;
-  height: 110px;
+  height: 150px;
   background: #034140;
   border-radius: 5px;
   color: #ffffff;
@@ -22,7 +21,7 @@ export const Li = styled.li`
   }
 
   h4 {
-    font-size: 12px;
+    font-size: 16px;
     font-family: "Inter";
     margin-top: 5px;
     margin-bottom: 5px;
@@ -36,7 +35,11 @@ export const Li = styled.li`
 
   @media (min-width: 564px) {
     width: 499px;
-    height: 81px;
+    height: 130px;
+
+    .infoDiv {
+      margin-left: 15%;
+    }
 
     h4 {
       font-size: 14px;

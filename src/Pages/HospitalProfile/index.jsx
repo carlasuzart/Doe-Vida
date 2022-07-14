@@ -1,24 +1,23 @@
 import HeaderAlt from "../../components/HeaderAlt";
 import { Container, Schedules } from "./style";
 
-import {  useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import CardSchedulesHospital from "../../components/CardSchedulesHospital/index.jsx";
 import { schedulesContext } from "../../providers/SchedulesList";
 import { useContext } from "react";
-
+import { BiEdit } from "react-icons/bi";
 
 function HospitalProfile() {
   const history = useHistory();
   const nameHospital = localStorage.getItem("@CapstoneM3:NameHospital");
   const addressHospital = localStorage.getItem("@CapstoneM3:AddressHospital");
 
-
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      history.push("/")
+      history.push("/");
     }
-  }, [])
+  }, []);
 
   const company_number = localStorage.getItem("@CapstoneM3:company_number");
   const { SchedulesList } = useContext(schedulesContext);
@@ -45,6 +44,7 @@ function HospitalProfile() {
 
     //creates a non repeting elements array
     dates = [...new Set(dates)];
+    dates.sort();
 
     return (
       <ul className="scheduleCards">
@@ -62,12 +62,13 @@ function HospitalProfile() {
       <div className="hospitalInfo">
         <h2>{nameHospital}</h2>
         <p>{addressHospital}</p>
-        <button onClick={() => history.push("/EditHospital")}>e</button>
+        <button className="edit" onClick={() => history.push("/EditHospital")}>
+          <BiEdit />
+        </button>
       </div>
       <Schedules>
         <div className="scheduleTitle">
           <h2>Agendamentos</h2>
-          <button onClick={() => history.push("/EditHospital")}>e</button>
         </div>
 
         {agendation()}

@@ -1,7 +1,7 @@
 import HeaderAlt from "../../components/HeaderAlt";
 import { Container, Content } from "./style";
 import { toast } from "react-toastify";
-import { createSchedule, getUser } from "../../services/FakeApi";
+import { createSchedule, getShedule, getUser } from "../../services/FakeApi";
 import { useState } from "react";
 import { useEffect } from "react";
 import DatePicker from "react-datepicker";
@@ -9,10 +9,13 @@ import { registerLocale } from "react-datepicker";
 import ptBR from "date-fns/locale/pt-BR";
 import "react-datepicker/dist/react-datepicker.css";
 import { useHistory } from "react-router-dom";
+import { schedulesContext } from "../../providers/SchedulesList";
+import { useContext } from "react";
 
 registerLocale("pt-br", ptBR);
 
 function DateAvaliable() {
+  const { requisiçãoShedules } = useContext(schedulesContext);
   const history = useHistory();
   const [currentHospital, setCurrentHospital] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
@@ -47,14 +50,12 @@ function DateAvaliable() {
   };
 
   const dateFormat = (date) => {
-    console.log(new Date(date));
-
     let formatYearMonthDay = dateFormatAux(date);
 
     return formatYearMonthDay;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     let scheduledYMD = "";
     if (startDate != null) scheduledYMD = dateFormat(startDate);
@@ -73,16 +74,32 @@ function DateAvaliable() {
       name: currentUser.name,
       address: currentHospital.address,
     };
-    toast.success("Agendamento criado com sucesso!");
-    history.push("/Schedules");
-    createSchedule(output);
+
+    const schedule = await getShedule();
+
+    const currentDaySchedules = schedule.data.filter(
+      (item) =>
+        item.company_number === output.company_number &&
+        item.date === output.date
+    );
+
+    if (!output.date) {
+      toast.error("Por favor selecione uma data.");
+    } else if (currentDaySchedules.length >= 20) {
+      toast.error("Data esgotada. Por favor selecione outra");
+    } else {
+      toast.success("Agendamento criado com sucesso!");
+      history.push("/Schedules");
+      await createSchedule(output);
+      requisiçãoShedules();
+    }
   };
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      history.push("/")
+      history.push("/");
     }
-  }, [])
+  }, []);
   return (
     <>
       <HeaderAlt />

@@ -1,182 +1,94 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.main`
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-export const Content = styled.div`
+
+export const RegisterForm = styled.form`
+  width: 90vw;
+  max-width: 531px;
+  min-width: 250px;
+  padding: 1rem 0;
+  border-radius: 8px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-
-  form {
-    height: 700px;
-  }
-
-  .validacao {
-    display: flex;
-    flex-direction: row;
-    margin: 0px;
-    align-items: center;
-  }
+  justify-content: space-between;
 
   h1 {
-    width: 344px;
-    height: 41px;
-    font-family: "Nunito";
-    font-style: normal;
+    color: #591c21;
     font-weight: 400;
-    font-size: 33.9261px;
-    line-height: 46px;
-    color: #8d1f28;
-    margin-top: 10px;
-    text-align: center;
+    font-size: 35px;
+    margin-bottom: 30px;
   }
 
-  label {
-    left: 30px;
-    font-family: "Nunito";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21.3882px;
-    line-height: 29px;
-    color: #000000;
-  }
-
-  input {
-    width: 280px;
-    height: 40px;
-    background: #fefffb;
-    border: 1px solid #591c21;
-    border-radius: 10px;
-    padding: 20px;
-  }
-
-  div {
+  .inputSection {
     display: flex;
     flex-direction: column;
-    margin-left: 60px;
-    margin-bottom: 20px;
-  }
+    gap: 1rem;
+    width: 85%;
+    max-width: 375px;
 
-  p {
-    color: red;
-    width: 250px;
-  }
-
-  button {
-    width: 284px;
-    height: 45px;
-    background: #034140;
-    border-radius: 8px;
-    font-family: "Nunito";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-    color: #ffffff;
-    margin-left: 60px;
-    transition: 0.3s;
-    &:hover {
-      background: #046967;
-    }
-  }
-
-  .btn {
-    display: flex;
-    flex-direction: column;
-    margin-left: 0px;
-  }
-
-  span {
-    margin-left: 150px;
-    font-family: "Nunito";
-    font-style: normal;
-    font-size: 16px;
-    text-align: center;
-    color: #7d7d7d;
-    cursor: pointer;
-  }
-
-  @media (min-width: 480px) {
-    form {
-      height: 800px;
+    .inputs {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin-top: 100px;
-    }
-
-    h1 {
-      width: 92px;
-      height: 41px;
-      font-family: "Nunito";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 33.9261px;
-      line-height: 46px;
-      color: #8d1f28;
-    }
-
-    .validacao {
+      gap: 0.4rem;
       display: flex;
       flex-direction: row;
-      margin: 0px;
-      align-items: center;
-    }
 
-    p {
-      color: red;
-      margin-left: 20px;
-      width: 200px;
-    }
+      .erro {
+        color: red;
+      }
 
+      label {
+        color: #591c21;
+        margin-left: 5px;
+      }
+    }
     input {
-      width: 400px;
-      height: 40px;
-      background: #fefffb;
-      border: 1px solid #591c21;
-      border-radius: 10px;
-      padding: 20px;
+      height: 35px;
+      outline: none;
+      padding-left: 12px;
     }
+  }
 
-
-    .btn {
-      display: flex;
-      flex-direction: column;
-      margin-left: 0px;
-    }
+  .buttonSection {
+    width: 100%;
 
     button {
-      width: 400px;
-      height: 45px;
+      width: 33%;
+      min-width: 133.23px;
+      height: 33px;
       background: #034140;
-      border-radius: 8px;
-      font-family: "Nunito";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 19px;
-      color: #ffffff;
-      margin-top: 10px;
+      margin-top: 20px;
+      color: white;
+      font-size: 1.1rem;
+
+      border-radius: 5px;
+
+      transition: 0.4s;
+      &:hover {
+        background: #046967;
+      }
     }
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
     span {
-      width: 400px;
-      font-family: "Nunito";
-      font-style: normal;
-      font-size: 16px;
-      text-align: center;
-      color: #7d7d7d;
       cursor: pointer;
-      margin-left: 40px;
-      margin-bottom: 20px;
-      text-decoration: none;
+      font-size: 10px;
+      color: #034140;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 `;

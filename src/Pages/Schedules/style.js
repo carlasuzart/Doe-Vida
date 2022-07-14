@@ -21,7 +21,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     margin-right: 10px;
-    font-size: 9.74466px;
+    font-size: 20px;
   }
 
   .buttonEContainer {
@@ -34,7 +34,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 35px;
+
   }
 
   .nameUser {
@@ -64,7 +64,7 @@ export const Container = styled.div`
   hr {
     background-color: #8d1f28;
     width: 100vw;
-    height: 5px;
+    height: 3px;
   }
 
   main {
@@ -101,7 +101,7 @@ export const Container = styled.div`
     .topPage {
       flex-direction: row;
       justify-content: space-between;
-      margin-top: 20px;
+    
     }
     .buttonEContainer {
       width: 40px;
@@ -113,11 +113,16 @@ export const Container = styled.div`
       display: flex;
     }
     .nameUser {
-      margin-bottom: 25px;
+      margin-bottom: 15px;
     }
 
     .E {
       margin-bottom: 10px;
+      width: 17px;
+      height: 18px;
+      border-radius: 5px;
+      font-size: 14px;
+      align-items: center;
     }
 
     h2 {

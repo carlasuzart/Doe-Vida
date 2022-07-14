@@ -23,16 +23,25 @@ const saveToken = (token) => {
   localStorage.setItem("token", token);
 };
 
-export const loginUser = (data) =>
+export const loginUser = (data, type) =>
   axios({
     url: `${baseUrl}/login`,
     method: "POST",
     data: data,
   })
     .then((resp) => {
-      toast.success("Usuário Logado com sucesso");
-      saveToken(resp.data.accessToken);
-      return resp;
+      if (
+        (type === "user" && resp.data.user.type === "user") ||
+        (type === "hospital" && resp.data.user.type === "hospital")
+      ) {
+        toast.success("Usuário Logado com sucesso");
+        saveToken(resp.data.accessToken);
+        return resp;
+      } else {
+        if (type === "user")
+          toast.error("Uma conta de hospital não pode ser usada aqui");
+        else toast.error("Uma conta de doador não pode ser usada aqui");
+      }
     })
     .catch((error) => {
       toast.error(error.response.data);
@@ -114,3 +123,15 @@ export const editUser = (data, id) => {
     },
   }).then((resp) => console.log(resp));
 };
+
+
+export const delet = (id) => {
+  axios({
+    url: `https://s6-11-fernando-sramignon.herokuapp.com/scheduling/${id}`,
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  }).then((resp) => console.log(resp));
+}

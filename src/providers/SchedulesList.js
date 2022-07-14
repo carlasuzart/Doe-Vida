@@ -7,7 +7,7 @@ export const SchedulesProvider = ({ children }) => {
   const [SchedulesList, setSchedulesList] = useState([]);
   const [currentSchedule, setCurrentSchedule] = useState();
 
-  useEffect(() => {
+  function requisiçãoShedules() {
     axios({
       method: "GET",
       url: `https://s6-11-fernando-sramignon.herokuapp.com/scheduling`,
@@ -15,6 +15,10 @@ export const SchedulesProvider = ({ children }) => {
       setSchedulesList(resp.data);
       return resp;
     });
+  }
+
+  useEffect(() => {
+    requisiçãoShedules();
   }, []);
 
   return (
@@ -23,6 +27,8 @@ export const SchedulesProvider = ({ children }) => {
         SchedulesList,
         currentSchedule,
         setCurrentSchedule,
+        requisiçãoShedules,
+        setSchedulesList,
       }}
     >
       {children}

@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import { schedulesContext } from "../../providers/SchedulesList";
 import { useContext } from "react";
 import { userDataContext } from "../../providers/UserDataProfile.js";
+import { BiEdit } from "react-icons/bi";
+
 
 function Schedules() {
   const userId = localStorage.getItem("@CapstoneM3:userId");
@@ -13,9 +15,8 @@ function Schedules() {
   const { requisiçãoShedules } = useContext(schedulesContext);
   const { requisiçãoDados } = useContext(userDataContext);
   const history = useHistory();
-
   const nameUser = localStorage.getItem("@CapstoneM3:NameUser");
-    
+
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       history.push("/");
@@ -29,7 +30,6 @@ function Schedules() {
     });
 
   function agendation() {
-    console.log(schedulesFilterUser);
     if (schedulesFilterUser && schedulesFilterUser.length === 0) {
       return <h3>Nenhum agendamento</h3>;
     }
@@ -62,18 +62,13 @@ function Schedules() {
               }}
               className="E"
             >
-              E
+             <BiEdit />
+
             </button>
           </div>
           <h1 className="nameUser">Olá, {nameUser}</h1>
         </div>
-        <button
-          onClick={() => {
-           
-            history.push("/Requirements");
-          }}
-          className="doar"
-        >
+        <button onClick={() => history.push("/Requirements")} className="doar">
           Doar
         </button>
       </div>

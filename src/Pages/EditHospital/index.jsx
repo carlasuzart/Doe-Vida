@@ -10,7 +10,6 @@ import { useContext } from "react";
 import { userDataContext } from "../../providers/UserDataProfile";
 import { getUser } from "../../services/FakeApi";
 
-
 function EditHospital() {
   const history = useHistory();
   const { UserDataProfile, setUserDataProfile } = useContext(userDataContext);
@@ -107,6 +106,7 @@ function EditHospital() {
               type="text"
               defaultValue={ UserDataProfile.corporate_name && UserDataProfile.corporate_name}
               placeholder="Digite aqui a social"
+
               {...register("razaoSocial")}
             />
             <div className="inputs">
@@ -117,7 +117,6 @@ function EditHospital() {
               type="text"
               placeholder="Digite aqui o cnpj"
               defaultValue={ UserDataProfile.company_number && UserDataProfile.company_number}
-
               {...register("cnpj")}
             />
             <div className="inputs">
@@ -177,7 +176,7 @@ function EditHospital() {
                 history.push("/HospitalProfile");
               }}
             >
-              voltar
+              Voltar
             </span>
           </section>
         </RegisterForm>

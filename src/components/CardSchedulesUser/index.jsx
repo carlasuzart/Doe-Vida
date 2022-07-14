@@ -8,11 +8,11 @@ function CardSchedulesUser({ date, address, name }) {
   return (
     <Li>
       <div className="infoDiv">
-        <h4>{name}</h4>
         <span>{`${dia}/${mes}/${ano}`}</span>
+        <h4>{name}</h4>
+        <p className="endereçoHospital">{address}</p>
+        <p>Horário de atendimento: 08:00hs às 14:00hs</p>
       </div>
-
-      <p className="endereçoHospital">{address}</p>
     </Li>
   );
 }
