@@ -20,7 +20,7 @@ function LoginHospital() {
     resolver: yupResolver(schema),
   });
   const onSubmit = async (data) => {
-    const response = await loginUser(data);
+    const response = await loginUser(data, "hospital");
     if (response.statusText === "OK") {
       const nameHospital = response.data.user.corporate_name;
       const addressHospital = response.data.user.address;
