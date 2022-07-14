@@ -6,9 +6,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { userDataContext } from "../../providers/UserDataProfile";
+import { useContext } from "react";
+import { getUser } from "../../services/FakeApi";
+import { editUser } from "../../services/FakeApi";
 
 function EditUser() {
+  const { UserDataProfile, setUserDataProfile } = useContext(userDataContext);
   const history = useHistory();
+
 
   const formSchema = yup.object().shape({
     name: yup.string(),
@@ -54,10 +60,17 @@ function EditUser() {
   });
 
   const handleChange = (data) => {
-    console.log(data);
+    const id = localStorage.getItem("@CapstoneM3:userId")
+    editUser(data,id);
+    history.push("/Schedules")
+
   };
 
   useEffect(() => {
+    const id = localStorage.getItem("@CapstoneM3:userId");
+    setUserDataProfile(getUser(id))
+    console.log(getUser(id))
+    
     if (!localStorage.getItem("token")) {
       history.push("/");
     }
@@ -76,6 +89,7 @@ function EditUser() {
               <p className="erro">{errors.name?.message}</p>
             </div>
             <input
+              defaultValue={ UserDataProfile.email && UserDataProfile.email}
               type="text"
               placeholder=" Digite seu nome"
               {...register("name")}
@@ -86,6 +100,7 @@ function EditUser() {
               <p className="erro">{errors.birth_date?.message}</p>
             </div>
             <input
+             defaultValue={ UserDataProfile.birth_date && UserDataProfile.birth_date}
               type="text"
               placeholder=" ex: 07/07/1979"
               {...register("birth_date")}
@@ -96,6 +111,7 @@ function EditUser() {
               <p className="erro">{errors.user_number?.message}</p>
             </div>
             <input
+              defaultValue={ UserDataProfile.user_number && UserDataProfile.user_number}
               type="text"
               placeholder=" ex: 123.456.789-01"
               {...register("user_number")}
@@ -106,6 +122,7 @@ function EditUser() {
               <p className="erro">{errors.email?.message}</p>
             </div>
             <input
+              defaultValue={ UserDataProfile.email && UserDataProfile.email}
               type="text"
               placeholder=" Digite seu email"
               {...register("email")}
@@ -116,6 +133,7 @@ function EditUser() {
               <p className="erro">{errors.address?.message}</p>
             </div>
             <input
+              defaultValue={ UserDataProfile.address && UserDataProfile.address}
               type="text"
               placeholder=" Digite seu endereço"
               {...register("address")}
@@ -126,6 +144,7 @@ function EditUser() {
               <p className="erro">{errors.tel?.message}</p>
             </div>
             <input
+              defaultValue={ UserDataProfile.tel && UserDataProfile.tel}
               type="text"
               placeholder=" Digite seu telefone"
               {...register("tel")}
@@ -136,6 +155,7 @@ function EditUser() {
               <p className="erro">{errors.password?.message}</p>
             </div>
             <input
+              defaultValue={ UserDataProfile.password && UserDataProfile.password}
               type="password"
               placeholder=" Digite uma senha"
               {...register("password")}

@@ -1,6 +1,19 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
+
+const userMock = {
+  email: "",
+  password: "",
+  address: "",
+  birth_date: "",
+  name: "",
+  tel: "",
+  user_number: "",
+  type: "",
+  id: null
+}
+
 //baseUrl
 // const baseUrl = "https://apicapstonejson.herokuapp.com";
 const baseUrl = "https://s6-11-fernando-sramignon.herokuapp.com";
@@ -66,16 +79,16 @@ export const getHospitals = () => {
   });
 };
 
-export const getUser = (id) => {
-  return axios({
+export const getUser = async (id) => {
+const resp = await axios({
     url: `${baseUrl}/users/${id}`,
     method: "GET",
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),
     },
-  }).then((resp) => {
-    return resp;
-  });
+  })
+
+  return resp.data
 };
 
 export const createSchedule = (data) => {

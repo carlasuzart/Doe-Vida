@@ -6,9 +6,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { editUser } from "../../services/FakeApi";
+import { useContext } from "react";
+import { userDataContext } from "../../providers/UserDataProfile";
+import { getUser } from "../../services/FakeApi";
 
 function EditHospital() {
   const history = useHistory();
+  const { UserDataProfile, setUserDataProfile } = useContext(userDataContext);
+
+
 
   const validationForm = yup.object().shape({
     name: yup.string().required("Este campo é obrigatório"),
@@ -62,9 +68,14 @@ function EditHospital() {
 
   const handleChange = (data) => {
     editUser(data, localStorage.getItem("@CapstoneM3:userId"));
+    history.push("/HospitalProfile")
+
   };
 
   useEffect(() => {
+    const id = localStorage.getItem("@CapstoneM3:HospitalId");
+    setUserDataProfile(getUser(id))
+    
     if (!localStorage.getItem("token")) {
       history.push("/");
     }
@@ -83,6 +94,7 @@ function EditHospital() {
             </div>
             <input
               type="text"
+              defaultValue={ UserDataProfile.company_name && UserDataProfile.company_name}
               placeholder="Digite aqui o nome do hospital"
               {...register("name")}
             />
@@ -92,7 +104,9 @@ function EditHospital() {
             </div>
             <input
               type="text"
-              placeholder="Digite aqui a razão social"
+              defaultValue={ UserDataProfile.corporate_name && UserDataProfile.corporate_name}
+              placeholder="Digite aqui a social"
+
               {...register("razaoSocial")}
             />
             <div className="inputs">
@@ -101,7 +115,8 @@ function EditHospital() {
             </div>
             <input
               type="text"
-              placeholder="Digite aqui o CNPJ"
+              placeholder="Digite aqui o cnpj"
+              defaultValue={ UserDataProfile.company_number && UserDataProfile.company_number}
               {...register("cnpj")}
             />
             <div className="inputs">
@@ -111,6 +126,7 @@ function EditHospital() {
             <input
               type="email"
               placeholder="Digite aqui o email"
+              defaultValue={ UserDataProfile.email && UserDataProfile.email}
               {...register("email")}
             />
             <div className="inputs">
@@ -119,6 +135,8 @@ function EditHospital() {
             </div>
             <input
               type="text"
+              defaultValue={ UserDataProfile.adress && UserDataProfile.adress}
+
               placeholder="Digite aqui o endereço"
               {...register("endereco")}
             />
@@ -128,7 +146,8 @@ function EditHospital() {
             </div>
             <input
               type="text"
-              placeholder="Digite o telefone"
+              defaultValue={ UserDataProfile.company_tel && UserDataProfile.company_tel}
+              placeholder="Digite seu telefone"
               {...register("telefone")}
             />
             <div className="inputs">
