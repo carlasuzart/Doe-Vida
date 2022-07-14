@@ -44,6 +44,7 @@ function SchedulesByDate() {
               <PatientsScheduledCard
                 name={user.name}
                 email={user.email}
+                id={user.id}
                 key={index}
               />
             ))}
