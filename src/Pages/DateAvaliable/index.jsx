@@ -27,12 +27,13 @@ function DateAvaliable() {
 
   async function getHospitalById() {
     const response = await getUser(localStorage.getItem("currentHospitalId"));
-    setCurrentHospital(response.data);
+    setCurrentHospital(response);
+
   }
 
   async function getUserById() {
     const response = await getUser(localStorage.getItem("@CapstoneM3:userId"));
-    setCurrentUser(response.data);
+    setCurrentUser(response);
   }
 
   const [startDate, setStartDate] = useState(null);
