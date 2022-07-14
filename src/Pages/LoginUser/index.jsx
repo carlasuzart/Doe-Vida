@@ -22,7 +22,8 @@ function LoginUser() {
   const history = useHistory();
 
   const onSubmit = async (data) => {
-    const response = await loginUser(data);
+    const response = await loginUser(data, "user");
+    console.log(response);
 
     if (response.statusText === "OK") {
       const nameUser = response.data.user.name;
