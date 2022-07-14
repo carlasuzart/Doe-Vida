@@ -1,24 +1,40 @@
 import HeaderAlt from "../../components/HeaderAlt";
 import { Container, PatientsList } from "./style";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { schedulesContext } from "../../providers/SchedulesList";
 import PatientsScheduledCard from "../../components/PatientsScheduledCard";
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
 
 function SchedulesByDate() {
-  const { currentSchedule } = useContext(schedulesContext);
   const company_number = localStorage.getItem("@CapstoneM3:company_number");
   const currentScheduleLocal = localStorage.getItem("currentSchedule");
   const { SchedulesList } = useContext(schedulesContext);
 
-  const schedulesFilterUser =
-    SchedulesList &&
-    SchedulesList.filter((item) => {
-      return (
-        item.company_number === company_number &&
-        item.date === currentScheduleLocal
-      );
-    });
+  // const schedulesFilterUser =
+  //   SchedulesList &&
+  //   SchedulesList.filter((item) => {
+  //     return (
+  //       item.company_number === company_number &&
+  //       item.date === currentScheduleLocal
+  //     );
+  //   });
+
+  const [schedulesFilterUser, setSchedulesFilterUser] = useState();
+
+  useState(() => {
+    setSchedulesFilterUser(
+      SchedulesList &&
+        SchedulesList.filter((item) => {
+          return (
+            item.company_number === company_number &&
+            item.date === currentScheduleLocal
+          );
+        })
+    );
+  }, [, SchedulesList]);
+
+  console.log(schedulesFilterUser);
 
   function formatYYMMDD(date) {
     const mounth = date.slice(5, 7);
@@ -39,15 +55,33 @@ function SchedulesByDate() {
           <span onClick={() => history.push("/HospitalProfile")}>x</span>
         </div>
         <div className="patientDiv">
-          {schedulesFilterUser &&
-            schedulesFilterUser.map((user, index) => (
+          {SchedulesList &&
+            SchedulesList.filter((item) => {
+              return (
+                item.company_number === company_number &&
+                item.date === currentScheduleLocal
+              );
+            }).map((user, index) => (
               <PatientsScheduledCard
+                schedulesFilterUser={schedulesFilterUser}
+                setSchedulesFilterUser={setSchedulesFilterUser}
                 name={user.name}
                 email={user.email}
                 id={user.id}
                 key={index}
               />
             ))}
+          {/* {schedulesFilterUser &&
+            schedulesFilterUser.map((user, index) => (
+              <PatientsScheduledCard
+                schedulesFilterUser={schedulesFilterUser}
+                setSchedulesFilterUser={setSchedulesFilterUser}
+                name={user.name}
+                email={user.email}
+                id={user.id}
+                key={index}
+              />
+            ))} */}
         </div>
       </PatientsList>
     </Container>

@@ -28,6 +28,7 @@ export const SchedulesProvider = ({ children }) => {
         currentSchedule,
         setCurrentSchedule,
         requisiçãoShedules,
+        setSchedulesList,
       }}
     >
       {children}
