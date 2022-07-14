@@ -30,7 +30,8 @@ function LoginHospital() {
       localStorage.setItem("@CapstoneM3:NameHospital", nameHospital);
       localStorage.setItem("@CapstoneM3:AddressHospital", addressHospital);
       localStorage.setItem("@CapstoneM3:company_number", company_number);
-      localStorage.setItem("@CapstoneM3:HospitalId", hospitalId);
+      localStorage.setItem("@CapstoneM3:userId", hospitalId);
+
       history.push("/HospitalProfile");
     }
   };

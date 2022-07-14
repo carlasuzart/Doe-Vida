@@ -14,27 +14,16 @@ function EditHospital() {
   const history = useHistory();
   const { UserDataProfile, setUserDataProfile } = useContext(userDataContext);
 
-
-
   const validationForm = yup.object().shape({
-    name: yup.string().required("Este campo é obrigatório"),
-    razaoSocial: yup.string().required("Este campo é obrigatório"),
-    cnpj: yup.string().matches(/^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/, {
+    company_name: yup.string().required("Este campo é obrigatório"),
+    corporate_name: yup.string().required("Este campo é obrigatório"),
+    company_number: yup.string().matches(/^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/, {
       message: "Formato do CNPJ:00.000.000/0000-00",
       excludeEmptyString: true,
     }),
-    dataNacimento: yup
-      .string()
-      .matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$", {
-        message: "Formato da data:dd/mm/aaaa",
-        excludeEmptyString: true,
-      }),
-    cpf: yup.string().matches("[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}", {
-      message: "Formato para CPF:000.000.000-00",
-      excludeEmptyString: true,
-    }),
-    endereco: yup.string().required("Este campo é obrigatório"),
-    telefone: yup
+
+    address: yup.string().required("Este campo é obrigatório"),
+    company_tel: yup
       .string()
       .required("Este campo é obrigatório")
       .matches("^([1-9]{2}) [9]{0,1}[6-9]{1}[0-9]{3}-[0-9]{4}$", {
@@ -42,7 +31,7 @@ function EditHospital() {
         excludeEmptyString: true,
       }),
     email: yup.string().email("Email inválido"),
-    senha: yup
+    password: yup
       .string()
       .matches(
         "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$",
@@ -54,7 +43,7 @@ function EditHospital() {
       ),
     confirmarSenha: yup
       .string()
-      .oneOf([yup.ref("senha"), null], "As senhas devem corresponder"),
+      .oneOf([yup.ref("password"), null], "As senhas devem corresponder"),
     check: yup.boolean().isTrue("Você não aceitou os termos!"),
   });
 
@@ -68,18 +57,22 @@ function EditHospital() {
 
   const handleChange = (data) => {
     editUser(data, localStorage.getItem("@CapstoneM3:userId"));
-    history.push("/HospitalProfile")
-
+    history.push("/HospitalProfile");
   };
 
-  useEffect(() => {
-    const id = localStorage.getItem("@CapstoneM3:HospitalId");
-    setUserDataProfile(getUser(id))
-    
-    if (!localStorage.getItem("token")) {
-      history.push("/");
-    }
-  }, []);
+  useEffect(
+    () => async () => {
+      const id = localStorage.getItem("@CapstoneM3:userId");
+      const userInfo = await getUser(id);
+      setUserDataProfile(userInfo);
+      console.log(userInfo);
+
+      if (!localStorage.getItem("token")) {
+        history.push("/");
+      }
+    },
+    []
+  );
 
   return (
     <>
@@ -90,34 +83,39 @@ function EditHospital() {
           <section className="inputSection">
             <div className="inputs">
               <label htmlFor="name">Nome da empresa</label>
-              <p className="erro">{errors.name?.message}</p>
+              <p className="erro">{errors.company_name?.message}</p>
             </div>
             <input
               type="text"
-              defaultValue={ UserDataProfile.company_name && UserDataProfile.company_name}
+              defaultValue={
+                UserDataProfile.corporate_name && UserDataProfile.corporate_name
+              }
               placeholder="Digite aqui o nome do hospital"
-              {...register("name")}
+              {...register("corporate_name")}
             />
             <div className="inputs">
               <label htmlFor="social">Razão Social</label>
-              <p className="erro">{errors.razaoSocial?.message}</p>
+              <p className="erro">{errors.company_name?.message}</p>
             </div>
             <input
               type="text"
-              defaultValue={ UserDataProfile.corporate_name && UserDataProfile.corporate_name}
+              defaultValue={
+                UserDataProfile.company_name && UserDataProfile.company_name
+              }
               placeholder="Digite aqui a social"
-
-              {...register("razaoSocial")}
+              {...register("company_name")}
             />
             <div className="inputs">
               <label htmlFor="cnpj">CNPJ</label>
-              <p className="erro">{errors.cnpj?.message}</p>
+              <p className="erro">{errors.company_number?.message}</p>
             </div>
             <input
               type="text"
               placeholder="Digite aqui o cnpj"
-              defaultValue={ UserDataProfile.company_number && UserDataProfile.company_number}
-              {...register("cnpj")}
+              defaultValue={
+                UserDataProfile.company_number && UserDataProfile.company_number
+              }
+              {...register("company_number")}
             />
             <div className="inputs">
               <label htmlFor="email">Email</label>
@@ -126,38 +124,39 @@ function EditHospital() {
             <input
               type="email"
               placeholder="Digite aqui o email"
-              defaultValue={ UserDataProfile.email && UserDataProfile.email}
+              defaultValue={UserDataProfile.email && UserDataProfile.email}
               {...register("email")}
             />
             <div className="inputs">
               <label htmlFor="address">Endereço</label>
-              <p className="erro">{errors.endereco?.message}</p>
+              <p className="erro">{errors.address?.message}</p>
             </div>
             <input
               type="text"
-              defaultValue={ UserDataProfile.adress && UserDataProfile.adress}
-
+              defaultValue={UserDataProfile.address && UserDataProfile.address}
               placeholder="Digite aqui o endereço"
-              {...register("endereco")}
+              {...register("address")}
             />
             <div className="inputs">
               <label htmlFor="Telefone">Telefone</label>
-              <p className="erro">{errors.telefone?.message}</p>
+              <p className="erro">{errors.company_tel?.message}</p>
             </div>
             <input
               type="text"
-              defaultValue={ UserDataProfile.company_tel && UserDataProfile.company_tel}
+              defaultValue={
+                UserDataProfile.company_tel && UserDataProfile.company_tel
+              }
               placeholder="Digite seu telefone"
-              {...register("telefone")}
+              {...register("company_tel")}
             />
             <div className="inputs">
               <label htmlFor="password">Senha</label>
-              <p className="erro">{errors.senha?.message}</p>
+              <p className="erro">{errors.password?.message}</p>
             </div>
             <input
               type="password"
               placeholder="Digite aqui a senha"
-              {...register("senha")}
+              {...register("password")}
             />
             <div className="inputs">
               <label htmlFor="confirmPassword">Confirmar senha</label>
@@ -166,7 +165,7 @@ function EditHospital() {
             <input
               type="password"
               placeholder="Confirme sua senha"
-              {...register("confirmaSenha")}
+              {...register("confirmarSenha")}
             />
           </section>
           <section className="buttonSection">

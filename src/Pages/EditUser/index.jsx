@@ -15,7 +15,6 @@ function EditUser() {
   const { UserDataProfile, setUserDataProfile } = useContext(userDataContext);
   const history = useHistory();
 
-
   const formSchema = yup.object().shape({
     name: yup.string(),
     dbirth_date: yup
@@ -24,10 +23,12 @@ function EditUser() {
         message: "Formato da data:dd/mm/aaaa",
         excludeEmptyString: true,
       }),
-    user_number: yup.string().matches("[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}", {
-      message: "Formato para CPF:000.000.000-00",
-      excludeEmptyString: true,
-    }),
+    user_number: yup
+      .string()
+      .matches("[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}", {
+        message: "Formato para CPF:000.000.000-00",
+        excludeEmptyString: true,
+      }),
     tel: yup
       .string()
       .matches("^([1-9]{2}) [9]{0,1}[6-9]{1}[0-9]{3}-[0-9]{4}$", {
@@ -60,21 +61,25 @@ function EditUser() {
   });
 
   const handleChange = (data) => {
-    const id = localStorage.getItem("@CapstoneM3:userId")
-    editUser(data,id);
-    history.push("/Schedules")
-
+    const id = localStorage.getItem("@CapstoneM3:userId");
+    console.log(data);
+    editUser(data, id);
+    history.push("/Schedules");
   };
 
-  useEffect(() => {
-    const id = localStorage.getItem("@CapstoneM3:userId");
-    setUserDataProfile(getUser(id))
-    console.log(getUser(id))
-    
-    if (!localStorage.getItem("token")) {
-      history.push("/");
-    }
-  }, []);
+  useEffect(
+    () => async () => {
+      const id = localStorage.getItem("@CapstoneM3:userId");
+      const userInfo = await getUser(id);
+      setUserDataProfile(userInfo);
+      console.log(userInfo);
+
+      if (!localStorage.getItem("token")) {
+        history.push("/");
+      }
+    },
+    []
+  );
 
   return (
     <>
@@ -89,7 +94,7 @@ function EditUser() {
               <p className="erro">{errors.name?.message}</p>
             </div>
             <input
-              defaultValue={ UserDataProfile.email && UserDataProfile.email}
+              defaultValue={UserDataProfile.name && UserDataProfile.name}
               type="text"
               placeholder=" Digite seu nome"
               {...register("name")}
@@ -100,7 +105,9 @@ function EditUser() {
               <p className="erro">{errors.birth_date?.message}</p>
             </div>
             <input
-             defaultValue={ UserDataProfile.birth_date && UserDataProfile.birth_date}
+              defaultValue={
+                UserDataProfile.birth_date && UserDataProfile.birth_date
+              }
               type="text"
               placeholder=" ex: 07/07/1979"
               {...register("birth_date")}
@@ -111,7 +118,9 @@ function EditUser() {
               <p className="erro">{errors.user_number?.message}</p>
             </div>
             <input
-              defaultValue={ UserDataProfile.user_number && UserDataProfile.user_number}
+              defaultValue={
+                UserDataProfile.user_number && UserDataProfile.user_number
+              }
               type="text"
               placeholder=" ex: 123.456.789-01"
               {...register("user_number")}
@@ -122,7 +131,7 @@ function EditUser() {
               <p className="erro">{errors.email?.message}</p>
             </div>
             <input
-              defaultValue={ UserDataProfile.email && UserDataProfile.email}
+              defaultValue={UserDataProfile.email && UserDataProfile.email}
               type="text"
               placeholder=" Digite seu email"
               {...register("email")}
@@ -133,7 +142,7 @@ function EditUser() {
               <p className="erro">{errors.address?.message}</p>
             </div>
             <input
-              defaultValue={ UserDataProfile.address && UserDataProfile.address}
+              defaultValue={UserDataProfile.address && UserDataProfile.address}
               type="text"
               placeholder=" Digite seu endereço"
               {...register("address")}
@@ -144,7 +153,7 @@ function EditUser() {
               <p className="erro">{errors.tel?.message}</p>
             </div>
             <input
-              defaultValue={ UserDataProfile.tel && UserDataProfile.tel}
+              defaultValue={UserDataProfile.tel && UserDataProfile.tel}
               type="text"
               placeholder=" Digite seu telefone"
               {...register("tel")}

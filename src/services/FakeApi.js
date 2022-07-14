@@ -1,7 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-
 const userMock = {
   email: "",
   password: "",
@@ -11,8 +10,8 @@ const userMock = {
   tel: "",
   user_number: "",
   type: "",
-  id: null
-}
+  id: null,
+};
 
 //baseUrl
 // const baseUrl = "https://apicapstonejson.herokuapp.com";
@@ -80,15 +79,15 @@ export const getHospitals = () => {
 };
 
 export const getUser = async (id) => {
-const resp = await axios({
+  const resp = await axios({
     url: `${baseUrl}/users/${id}`,
     method: "GET",
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),
     },
-  })
+  });
 
-  return resp.data
+  return resp.data;
 };
 
 export const createSchedule = (data) => {
@@ -113,6 +112,12 @@ export const getShedule = () =>
   }).then((resp) => resp);
 
 export const editUser = (data, id) => {
+  if (data.password === "") {
+    delete data.password;
+    delete data.confirmarSenha;
+  }
+  delete data.confirmarSenha;
+  console.log(data);
   axios({
     url: `${baseUrl}/users/${id}`,
     method: "PATCH",
@@ -121,9 +126,8 @@ export const editUser = (data, id) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
-  }).then((resp) => console.log(resp));
+  }).then((resp) => toast.success("Usuário editado com sucesso"));
 };
-
 
 export const delet = (id) => {
   axios({
@@ -134,4 +138,4 @@ export const delet = (id) => {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
   }).then((resp) => console.log(resp));
-}
+};
