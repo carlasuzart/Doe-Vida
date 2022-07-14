@@ -3,11 +3,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 export const userDataContext = createContext([]);
 
+
+
 export const UserDataProvider = ({ children }) => {
   const [UserDataProfile, setUserDataProfile] = useState([]);
   const [currentUserDataProfile, setCurrentUserDataProfile] = useState();
 
-  function requisiçãoDados() {
+ const requisiçãoDados = () =>  {
     const id = localStorage.getItem("@CapstoneM3:userId");
     axios({
       method: "GET",
@@ -30,6 +32,7 @@ export const UserDataProvider = ({ children }) => {
     <userDataContext.Provider
       value={{
         UserDataProfile,
+        setUserDataProfile,
         currentUserDataProfile,
         setCurrentUserDataProfile,
         requisiçãoDados
