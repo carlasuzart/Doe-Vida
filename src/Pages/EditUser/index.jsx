@@ -12,24 +12,24 @@ function EditUser() {
 
   const formSchema = yup.object().shape({
     name: yup.string(),
-    dataNascimento: yup
+    dbirth_date: yup
       .string()
       .matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$", {
         message: "Formato da data:dd/mm/aaaa",
         excludeEmptyString: true,
       }),
-    cpf: yup.string().matches("[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}", {
+    user_number: yup.string().matches("[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}", {
       message: "Formato para CPF:000.000.000-00",
       excludeEmptyString: true,
     }),
-    telefone: yup
+    tel: yup
       .string()
       .matches("^([1-9]{2}) [9]{0,1}[6-9]{1}[0-9]{3}-[0-9]{4}$", {
         message: "Formato do telefone :00 0000-0000",
         excludeEmptyString: true,
       }),
     email: yup.string().email("Email inválido"),
-    senha: yup
+    password: yup
       .string()
       .matches(
         "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$",
@@ -41,7 +41,7 @@ function EditUser() {
       ),
     confirmarSenha: yup
       .string()
-      .oneOf([yup.ref("senha"), null], "As senhas devem corresponder"),
+      .oneOf([yup.ref("password"), null], "As senhas devem corresponder"),
     check: yup.boolean().isTrue("Você não aceitou os termos!"),
   });
 
@@ -83,22 +83,22 @@ function EditUser() {
 
             <div className="inputs">
               <label htmlFor="dataNascimento">Data de nascimento</label>
-              <p className="erro">{errors.dataNascimento?.message}</p>
+              <p className="erro">{errors.birth_date?.message}</p>
             </div>
             <input
               type="text"
               placeholder=" ex: 07/07/1979"
-              {...register("dataNascimento")}
+              {...register("birth_date")}
             />
 
             <div className="inputs">
               <label htmlFor="cpf">CPF</label>
-              <p className="erro">{errors.cpf?.message}</p>
+              <p className="erro">{errors.user_number?.message}</p>
             </div>
             <input
               type="text"
               placeholder=" ex: 123.456.789-01"
-              {...register("cpf")}
+              {...register("user_number")}
             />
 
             <div className="inputs">
@@ -113,32 +113,32 @@ function EditUser() {
 
             <div className="inputs">
               <label htmlFor="endereco">Endereço</label>
-              <p className="erro">{errors.endereco?.message}</p>
+              <p className="erro">{errors.address?.message}</p>
             </div>
             <input
               type="text"
               placeholder=" Digite seu endereço"
-              {...register("endereco")}
+              {...register("address")}
             />
 
             <div className="inputs">
               <label htmlFor="telefone">Telefone</label>
-              <p className="erro">{errors.telefone?.message}</p>
+              <p className="erro">{errors.tel?.message}</p>
             </div>
             <input
               type="text"
               placeholder=" Digite seu telefone"
-              {...register("telefone")}
+              {...register("tel")}
             />
 
             <div className="inputs">
               <label htmlFor="senha">Senha</label>
-              <p className="erro">{errors.senha?.message}</p>
+              <p className="erro">{errors.password?.message}</p>
             </div>
             <input
               type="password"
               placeholder=" Digite uma senha"
-              {...register("senha")}
+              {...register("password")}
             />
 
             <div className="inputs">
