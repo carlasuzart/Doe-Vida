@@ -155,7 +155,6 @@ function EditUser() {
               <p className="erro">{errors.password?.message}</p>
             </div>
             <input
-              defaultValue={ UserDataProfile.password && UserDataProfile.password}
               type="password"
               placeholder=" Digite uma senha"
               {...register("password")}
