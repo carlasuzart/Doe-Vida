@@ -110,3 +110,15 @@ export const editUser = (data, id) => {
     },
   }).then((resp) => console.log(resp));
 };
+
+
+export const delet = (id) => {
+  axios({
+    url: `https://s6-11-fernando-sramignon.herokuapp.com/scheduling/${id}`,
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  }).then((resp) => console.log(resp));
+}
