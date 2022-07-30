@@ -10,7 +10,7 @@ export const SchedulesProvider = ({ children }) => {
   function requisiçãoShedules() {
     axios({
       method: "GET",
-      url: `https://s6-11-fernando-sramignon.herokuapp.com/scheduling`,
+      url: `https://doe-vida-api2.herokuapp.com/scheduling`,
     }).then((resp) => {
       setSchedulesList(resp.data);
       return resp;

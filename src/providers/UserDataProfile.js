@@ -13,7 +13,7 @@ export const UserDataProvider = ({ children }) => {
     const id = localStorage.getItem("@CapstoneM3:userId");
     axios({
       method: "GET",
-      url: `https://s6-11-fernando-sramignon.herokuapp.com/users/${id}`,
+      url: `https://doe-vida-api2.herokuapp.com/users/${id}`,
     }).then((resp) => {
       setUserDataProfile(resp.data);
       return resp;
