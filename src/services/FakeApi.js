@@ -15,7 +15,7 @@ const userMock = {
 
 //baseUrl
 // const baseUrl = "https://apicapstonejson.herokuapp.com";
-const baseUrl = "https://s6-11-fernando-sramignon.herokuapp.com";
+const baseUrl = "https://doe-vida-api2.herokuapp.com/";
 
 //save token in localStorage
 const saveToken = (token) => {
@@ -94,7 +94,7 @@ export const createSchedule = (data) => {
   console.log(localStorage.getItem("token"));
   return axios({
     method: "POST",
-    url: "https://s6-11-fernando-sramignon.herokuapp.com/scheduling",
+    url: "https://doe-vida-api2.herokuapp.com/scheduling",
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("token"),
@@ -108,7 +108,7 @@ export const createSchedule = (data) => {
 export const getShedule = () =>
   axios({
     method: "GET",
-    url: `https://s6-11-fernando-sramignon.herokuapp.com/scheduling`,
+    url: `https://doe-vida-api2.herokuapp.com/scheduling`,
   }).then((resp) => resp);
 
 export const editUser = (data, id) => {
@@ -131,7 +131,7 @@ export const editUser = (data, id) => {
 
 export const delet = (id) => {
   axios({
-    url: `https://s6-11-fernando-sramignon.herokuapp.com/scheduling/${id}`,
+    url: `https://doe-vida-api2.herokuapp.com/scheduling/${id}`,
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
